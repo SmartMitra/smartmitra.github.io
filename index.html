@@ -3,153 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SmartMitra - Useful Tools & Knowledge</title>
+<title>SmartMitra - Study Tools</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #172033;
+body{
+  background:#f4f7fb;
+  color:#222;
 }
 
-header {
-  background: #111827;
-  color: white;
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:22px 15px;
+  text-align:center;
 }
 
-.logo {
-  font-size: 26px;
-  font-weight: bold;
+header h1{
+  font-size:32px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
+header p{
+  margin-top:6px;
 }
 
-.hero {
-  text-align: center;
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  color: white;
+nav{
+  margin-top:15px;
 }
 
-.hero h1 {
-  font-size: 45px;
-  margin-bottom: 15px;
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:bold;
 }
 
-.hero p {
-  font-size: 19px;
-  margin-bottom: 25px;
+.hero{
+  text-align:center;
+  padding:50px 20px;
+  background:white;
 }
 
-.search {
-  width: 90%;
-  max-width: 600px;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
+.hero h2{
+  font-size:32px;
+  color:#2563eb;
+  margin-bottom:10px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
+.hero p{
+  color:#555;
+  font-size:17px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 25px;
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:30px 15px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+.section-title{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:28px;
 }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: 0.2s;
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.card{
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
-.card .icon {
-  font-size: 40px;
-  margin-bottom: 12px;
+.card h3{
+  color:#2563eb;
+  margin-bottom:15px;
 }
 
-.card h3 {
-  margin-bottom: 10px;
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
 }
 
-.card p {
-  color: #667085;
-  margin-bottom: 18px;
+textarea{
+  height:130px;
+  resize:vertical;
 }
 
-button {
-  border: none;
-  background: #2563eb;
-  color: white;
-  padding: 11px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border:0;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-button:hover {
-  background: #1d4ed8;
+button:hover{
+  opacity:.9;
 }
 
-.about {
-  background: white;
-  margin-top: 40px;
-  padding: 35px;
-  border-radius: 15px;
-  text-align: center;
+.result{
+  margin-top:12px;
+  padding:12px;
+  background:#eef4ff;
+  border-radius:8px;
+  font-weight:bold;
+  text-align:center;
 }
 
-footer {
-  margin-top: 50px;
-  padding: 25px;
-  background: #111827;
-  color: white;
-  text-align: center;
+.timer{
+  font-size:42px;
+  text-align:center;
+  margin:15px 0;
+  color:#7c3aed;
 }
 
-@media(max-width:600px) {
-  header {
-    flex-direction: column;
-    gap: 12px;
+footer{
+  margin-top:30px;
+  padding:25px;
+  background:#111827;
+  color:white;
+  text-align:center;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:26px;
   }
 
-  nav a {
-    margin: 0 7px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
+  .hero h2{
+    font-size:26px;
   }
 }
 </style>
@@ -158,97 +161,193 @@ footer {
 <body>
 
 <header>
-  <div class="logo">🚀 SmartMitra</div>
+  <h1>🚀 SmartMitra</h1>
+  <p>Smart Tools for Students</p>
 
   <nav>
-    <a href="#">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
+    <a href="#home">Home</a>
+    <a href="#study">Study</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Welcome to SmartMitra</h1>
-  <p>Useful tools, knowledge and helpful resources — all in one place.</p>
-
-  <input
-    class="search"
-    type="text"
-    placeholder="Search SmartMitra..."
-    onkeyup="searchCards(this.value)"
-  >
+<section class="hero" id="home">
+  <h2>📚 SmartMitra Study Tools</h2>
+  <p>Free and simple tools to help students</p>
 </section>
 
-<div class="container" id="tools">
+<div class="container" id="study">
 
-  <h2>🔥 Popular Categories</h2>
+<h2 class="section-title">🔥 Study Tools</h2>
 
-  <div class="cards">
+<div class="tools">
 
-    <div class="card">
-      <div class="icon">🧮</div>
-      <h3>Calculators</h3>
-      <p>Useful everyday calculation tools.</p>
-      <button onclick="alert('Calculators are coming soon!')">
-        Explore
-      </button>
-    </div>
+<!-- MARKS PERCENTAGE -->
+<div class="card">
+<h3>📊 Marks → Percentage</h3>
 
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>Study</h3>
-      <p>Study resources and useful educational content.</p>
-      <button onclick="alert('Study section is coming soon!')">
-        Explore
-      </button>
-    </div>
+<input type="number" id="marks" placeholder="Obtained Marks">
+<input type="number" id="total" placeholder="Total Marks">
 
-    <div class="card">
-      <div class="icon">💻</div>
-      <h3>Technology</h3>
-      <p>Simple technology tips and guides.</p>
-      <button onclick="alert('Technology section is coming soon!')">
-        Explore
-      </button>
-    </div>
+<button onclick="percentage()">Calculate</button>
 
-    <div class="card">
-      <div class="icon">💡</div>
-      <h3>Useful Tips</h3>
-      <p>Interesting and practical information.</p>
-      <button onclick="alert('Tips section is coming soon!')">
-        Explore
-      </button>
-    </div>
+<div class="result" id="percentageResult">
+Result will appear here
+</div>
+</div>
 
-  </div>
+<!-- CGPA -->
+<div class="card">
+<h3>🎓 CGPA → Percentage</h3>
 
-  <div class="about" id="about">
-    <h2>About SmartMitra</h2>
-    <p>
-      SmartMitra is a simple platform created to provide useful tools,
-      educational resources, technology guides and interesting information.
-    </p>
-  </div>
+<input type="number" id="cgpa" step="0.01" placeholder="Enter CGPA (0-10)">
 
+<button onclick="cgpaConvert()">Convert</button>
+
+<div class="result" id="cgpaResult">
+Result will appear here
+</div>
+</div>
+
+<!-- WORD COUNTER -->
+<div class="card">
+<h3>📝 Word Counter</h3>
+
+<textarea id="text" placeholder="Type or paste your text here..."></textarea>
+
+<button onclick="countWords()">Count</button>
+
+<div class="result" id="wordResult">
+Words: 0 | Characters: 0
+</div>
+</div>
+
+<!-- STUDY TIMER -->
+<div class="card">
+<h3>⏱️ Study Timer</h3>
+
+<div class="timer" id="timer">25:00</div>
+
+<button onclick="startTimer()">▶ Start</button>
+<button onclick="pauseTimer()">⏸ Pause</button>
+<button onclick="resetTimer()">🔄 Reset</button>
+</div>
+
+</div>
 </div>
 
 <footer>
-  © 2026 SmartMitra • Made with ❤️
+<p>© 2026 SmartMitra | Useful Tools for Students ❤️</p>
 </footer>
 
 <script>
-function searchCards(value) {
-  value = value.toLowerCase();
 
-  document.querySelectorAll(".card").forEach(function(card) {
-    if (card.innerText.toLowerCase().includes(value)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+// MARKS → PERCENTAGE
+function percentage(){
+
+let marks=Number(document.getElementById("marks").value);
+let total=Number(document.getElementById("total").value);
+
+if(marks<0 || total<=0 || marks>total){
+
+document.getElementById("percentageResult").innerText=
+"⚠️ Please enter valid marks";
+
+return;
 }
+
+let result=(marks/total)*100;
+
+document.getElementById("percentageResult").innerText=
+"Percentage: "+result.toFixed(2)+"%";
+}
+
+
+// CGPA → PERCENTAGE
+function cgpaConvert(){
+
+let cgpa=Number(document.getElementById("cgpa").value);
+
+if(cgpa<0 || cgpa>10){
+
+document.getElementById("cgpaResult").innerText=
+"⚠️ Enter CGPA between 0 and 10";
+
+return;
+}
+
+let result=cgpa*9.5;
+
+document.getElementById("cgpaResult").innerText=
+"Approx. Percentage: "+result.toFixed(2)+"%";
+}
+
+
+// WORD COUNTER
+function countWords(){
+
+let text=document.getElementById("text").value.trim();
+
+let words=text==="" ? 0 : text.split(/\s+/).length;
+let characters=text.length;
+
+document.getElementById("wordResult").innerText=
+"Words: "+words+" | Characters: "+characters;
+}
+
+
+// STUDY TIMER
+let time=25*60;
+let timerInterval=null;
+
+function updateTimer(){
+
+let minutes=Math.floor(time/60);
+let seconds=time%60;
+
+document.getElementById("timer").innerText=
+String(minutes).padStart(2,"0")+":"+
+String(seconds).padStart(2,"0");
+}
+
+function startTimer(){
+
+if(timerInterval!==null) return;
+
+timerInterval=setInterval(function(){
+
+if(time>0){
+
+time--;
+updateTimer();
+
+}else{
+
+clearInterval(timerInterval);
+timerInterval=null;
+
+alert("🎉 Study session complete!");
+
+}
+
+},1000);
+}
+
+function pauseTimer(){
+
+clearInterval(timerInterval);
+timerInterval=null;
+}
+
+function resetTimer(){
+
+clearInterval(timerInterval);
+timerInterval=null;
+
+time=25*60;
+
+updateTimer();
+}
+
 </script>
 
 </body>
