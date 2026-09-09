@@ -19,11 +19,10 @@ body{
   color:#222;
 }
 
-/* HEADER */
 header{
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
-  padding:20px;
+  padding:22px 15px;
   text-align:center;
 }
 
@@ -36,17 +35,25 @@ header p{
 }
 
 nav{
-  margin-top:15px;
+  margin-top:16px;
 }
 
 nav a{
   color:white;
   text-decoration:none;
-  margin:0 12px;
+  margin:0 10px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-/* HOME */
+.page{
+  display:none;
+}
+
+#home{
+  display:block;
+}
+
 .home{
   text-align:center;
   padding:65px 20px;
@@ -62,20 +69,8 @@ nav a{
 .home p{
   font-size:18px;
   color:#555;
-  margin-bottom:25px;
 }
 
-.explore{
-  display:inline-block;
-  background:#2563eb;
-  color:white;
-  padding:13px 25px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-/* CATEGORIES */
 .container{
   max-width:1050px;
   margin:auto;
@@ -88,34 +83,35 @@ nav a{
   margin-bottom:25px;
 }
 
-.categories{
+.categories,
+.tools{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
 }
 
 .category{
   background:white;
-  padding:25px;
-  border-radius:15px;
+  padding:28px 20px;
+  border-radius:16px;
   text-align:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.category:hover{
+  transform:translateY(-4px);
 }
 
 .category h3{
   color:#2563eb;
-  margin-bottom:8px;
+  margin-bottom:9px;
+  font-size:21px;
 }
 
-/* STUDY */
-#study{
-  display:none;
-}
-
-.tools{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+.category p{
+  color:#666;
 }
 
 .card{
@@ -130,7 +126,8 @@ nav a{
   margin-bottom:15px;
 }
 
-input,textarea{
+input,
+textarea{
   width:100%;
   padding:12px;
   margin:7px 0;
@@ -141,6 +138,7 @@ input,textarea{
 
 textarea{
   height:120px;
+  resize:vertical;
 }
 
 button{
@@ -156,6 +154,10 @@ button{
   cursor:pointer;
 }
 
+button:hover{
+  opacity:.9;
+}
+
 .result{
   margin-top:12px;
   padding:12px;
@@ -166,15 +168,25 @@ button{
 }
 
 .timer{
-  font-size:42px;
+  font-size:44px;
   text-align:center;
-  margin:15px 0;
+  margin:18px 0;
   color:#7c3aed;
 }
 
-/* FOOTER */
+.back{
+  max-width:1050px;
+  margin:auto;
+  padding:20px 15px 0;
+}
+
+.back button{
+  width:auto;
+  padding:10px 18px;
+}
+
 footer{
-  margin-top:30px;
+  margin-top:35px;
   padding:25px;
   background:#111827;
   color:white;
@@ -182,12 +194,17 @@ footer{
 }
 
 @media(max-width:600px){
-  .home h2{
-    font-size:28px;
-  }
 
   header h1{
-    font-size:26px;
+    font-size:27px;
+  }
+
+  .home h2{
+    font-size:29px;
+  }
+
+  nav a{
+    margin:0 6px;
   }
 }
 </style>
@@ -195,76 +212,206 @@ footer{
 
 <body>
 
-<!-- HEADER -->
 <header>
+
   <h1>🚀 SmartMitra</h1>
+
   <p>Free & Useful Online Tools</p>
 
   <nav>
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#" onclick="showStudy()">Study</a>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('study')">Study</a>
+    <a onclick="showPage('technology')">Technology</a>
+    <a onclick="showPage('calculators')">Calculators</a>
+    <a onclick="showPage('daily')">Daily Tools</a>
   </nav>
+
 </header>
 
 
-<!-- HOME PAGE -->
-<section class="home" id="home">
+<!-- HOME -->
 
-  <h2>Welcome to SmartMitra 🚀</h2>
+<section id="home" class="page">
 
-  <p>
-    Free, simple and useful tools for students and everyone.
-  </p>
+  <div class="home">
 
-  <a href="#" class="explore" onclick="showStudy()">
-    📚 Explore Study Tools
-  </a>
+    <h2>Welcome to SmartMitra 🚀</h2>
 
-</section>
+    <p>
+      Free, simple and useful online tools for everyone.
+    </p>
+
+  </div>
 
 
-<!-- HOME CATEGORIES -->
-<div class="container" id="homeCategories">
+  <div class="container">
 
-  <h2 class="title">🔥 Popular Categories</h2>
+    <h2 class="title">🔥 Popular Categories</h2>
 
-  <div class="categories">
+    <div class="categories">
 
-    <div class="category">
-      <h3>📚 Study</h3>
-      <p>Useful tools for students</p>
-    </div>
+      <div class="category" onclick="showPage('study')">
 
-    <div class="category">
-      <h3>💻 Technology</h3>
-      <p>Web development tools</p>
-    </div>
+        <h3>📚 Study</h3>
 
-    <div class="category">
-      <h3>🧮 Calculators</h3>
-      <p>Easy online calculators</p>
-    </div>
+        <p>Useful tools for students</p>
 
-    <div class="category">
-      <h3>🛠️ Daily Tools</h3>
-      <p>Useful everyday tools</p>
+      </div>
+
+
+      <div class="category" onclick="showPage('technology')">
+
+        <h3>💻 Technology</h3>
+
+        <p>Website development tools</p>
+
+      </div>
+
+
+      <div class="category" onclick="showPage('calculators')">
+
+        <h3>🧮 Calculators</h3>
+
+        <p>Useful online calculators</p>
+
+      </div>
+
+
+      <div class="category" onclick="showPage('daily')">
+
+        <h3>🛠️ Daily Tools</h3>
+
+        <p>Useful everyday tools</p>
+
+      </div>
+
     </div>
 
   </div>
 
-</div>
+</section>
 
 
-<!-- STUDY PAGE -->
-<section id="study">
+<!-- STUDY -->
+
+<section id="study" class="page">
+
+  <div class="back">
+    <button onclick="showPage('home')">← Back to Home</button>
+  </div>
 
   <div class="container">
 
-    <h2 class="title">📚 Study Tools</h2>
+    <h2 class="title">📚 Study</h2>
 
     <div class="tools">
 
-      <!-- 1 -->
+      <div class="card">
+        <h3>📖 Study Resources</h3>
+        <p>Useful study resources and learning tools will be added here.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Exam Preparation</h3>
+        <p>Exam preparation tools will be added here.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TECHNOLOGY -->
+
+<section id="technology" class="page">
+
+  <div class="back">
+    <button onclick="showPage('home')">← Back to Home</button>
+  </div>
+
+  <div class="container">
+
+    <h2 class="title">💻 Technology</h2>
+
+    <div class="tools">
+
+      <div class="card">
+        <h3>🌐 Website Development</h3>
+        <p>HTML, CSS and JavaScript tools will be added here.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧑‍💻 Developer Tools</h3>
+        <p>Useful development tools will be added here.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CALCULATORS -->
+
+<section id="calculators" class="page">
+
+  <div class="back">
+    <button onclick="showPage('home')">← Back to Home</button>
+  </div>
+
+  <div class="container">
+
+    <h2 class="title">🧮 Calculators</h2>
+
+    <div class="tools">
+
+      <div class="card">
+        <h3>📏 BMI Calculator</h3>
+        <p>BMI calculator will be added here.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎂 Age Calculator</h3>
+        <p>Age calculator will be added here.</p>
+      </div>
+
+      <div class="card">
+        <h3>💰 EMI Calculator</h3>
+        <p>EMI calculator will be added here.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧾 GST Calculator</h3>
+        <p>GST calculator will be added here.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DAILY TOOLS -->
+
+<section id="daily" class="page">
+
+  <div class="back">
+    <button onclick="showPage('home')">← Back to Home</button>
+  </div>
+
+  <div class="container">
+
+    <h2 class="title">🛠️ Daily Tools</h2>
+
+    <div class="tools">
+
+
+      <!-- MARKS -->
+
       <div class="card">
 
         <h3>📊 Marks → Percentage</h3>
@@ -292,7 +439,8 @@ footer{
       </div>
 
 
-      <!-- 2 -->
+      <!-- CGPA -->
+
       <div class="card">
 
         <h3>🎓 CGPA → Percentage</h3>
@@ -315,7 +463,8 @@ footer{
       </div>
 
 
-      <!-- 3 -->
+      <!-- WORD COUNTER -->
+
       <div class="card">
 
         <h3>📝 Word Counter</h3>
@@ -336,13 +485,14 @@ footer{
       </div>
 
 
-      <!-- 4 -->
+      <!-- 45 MINUTE TIMER -->
+
       <div class="card">
 
         <h3>⏱️ Study Timer</h3>
 
         <div class="timer" id="timer">
-          25:00
+          45:00
         </div>
 
         <button onclick="startTimer()">
@@ -366,66 +516,61 @@ footer{
 </section>
 
 
-<!-- FOOTER -->
 <footer>
+
   <p>© 2026 SmartMitra | Free Useful Tools ❤️</p>
+
 </footer>
 
 
 <script>
 
-/* PAGE SWITCH */
+/* PAGE SYSTEM */
 
-function showHome(){
+function showPage(page){
 
-  document.getElementById("home").style.display="block";
+  let pages=document.querySelectorAll(".page");
 
-  document.getElementById("homeCategories").style.display="block";
+  pages.forEach(function(item){
 
-  document.getElementById("study").style.display="none";
+    item.style.display="none";
 
-  window.scrollTo(0,0);
-}
+  });
 
-
-function showStudy(){
-
-  document.getElementById("home").style.display="none";
-
-  document.getElementById("homeCategories").style.display="none";
-
-  document.getElementById("study").style.display="block";
+  document.getElementById(page).style.display="block";
 
   window.scrollTo(0,0);
 }
 
 
-/* PERCENTAGE */
+/* MARKS → PERCENTAGE */
 
 function percentage(){
 
-  let marks =
-    Number(document.getElementById("marks").value);
+  let marks=Number(
+    document.getElementById("marks").value
+  );
 
-  let total =
-    Number(document.getElementById("total").value);
+  let total=Number(
+    document.getElementById("total").value
+  );
 
   if(
-    marks < 0 ||
-    total <= 0 ||
-    marks > total
+    marks<0 ||
+    total<=0 ||
+    marks>total
   ){
 
-    document.getElementById("percentageResult").innerText =
-      "⚠️ Please enter valid marks";
+    document.getElementById("percentageResult").innerText=
+    "⚠️ Please enter valid marks";
 
     return;
   }
 
-  let result = (marks / total) * 100;
+  let result=(marks/total)*100;
 
-  document.getElementById("percentageResult").innerText =
-    "Percentage: " + result.toFixed(2) + "%";
+  document.getElementById("percentageResult").innerText=
+  "Percentage: "+result.toFixed(2)+"%";
 }
 
 
@@ -433,22 +578,23 @@ function percentage(){
 
 function cgpaConvert(){
 
-  let cgpa =
-    Number(document.getElementById("cgpa").value);
+  let cgpa=Number(
+    document.getElementById("cgpa").value
+  );
 
-  if(cgpa < 0 || cgpa > 10){
+  if(cgpa<0 || cgpa>10){
 
-    document.getElementById("cgpaResult").innerText =
-      "⚠️ Enter CGPA between 0 and 10";
+    document.getElementById("cgpaResult").innerText=
+    "⚠️ Enter CGPA between 0 and 10";
 
     return;
   }
 
-  let result = cgpa * 9.5;
+  let result=cgpa*9.5;
 
-  document.getElementById("cgpaResult").innerText =
-    "Approx. Percentage: " +
-    result.toFixed(2) + "%";
+  document.getElementById("cgpaResult").innerText=
+  "Approx. Percentage: "+
+  result.toFixed(2)+"%";
 }
 
 
@@ -456,68 +602,68 @@ function cgpaConvert(){
 
 function countWords(){
 
-  let text =
-    document.getElementById("text").value.trim();
+  let text=document
+    .getElementById("text")
+    .value
+    .trim();
 
-  let words =
-    text === "" ? 0 : text.split(/\s+/).length;
+  let words=
+    text==="" ? 0 : text.split(/\s+/).length;
 
-  let characters =
-    text.length;
+  let characters=text.length;
 
-  document.getElementById("wordResult").innerText =
-    "Words: " + words +
-    " | Characters: " + characters;
+  document.getElementById("wordResult").innerText=
+  "Words: "+words+
+  " | Characters: "+characters;
 }
 
 
-/* TIMER */
+/* 45 MINUTE TIMER */
 
-let time = 25 * 60;
+let time=45*60;
 
-let timerInterval = null;
+let timerInterval=null;
 
 
 function updateTimer(){
 
-  let minutes =
-    Math.floor(time / 60);
+  let minutes=Math.floor(time/60);
 
-  let seconds =
-    time % 60;
+  let seconds=time%60;
 
-  document.getElementById("timer").innerText =
-    String(minutes).padStart(2,"0") +
-    ":" +
-    String(seconds).padStart(2,"0");
+  document.getElementById("timer").innerText=
+  String(minutes).padStart(2,"0")+
+  ":"+
+  String(seconds).padStart(2,"0");
 }
 
 
 function startTimer(){
 
-  if(timerInterval !== null) return;
+  if(timerInterval!==null){
+    return;
+  }
 
-  timerInterval =
-    setInterval(function(){
+  timerInterval=setInterval(function(){
 
-      if(time > 0){
+    if(time>0){
 
-        time--;
+      time--;
 
-        updateTimer();
+      updateTimer();
 
-      }
-      else{
+    }
+    else{
 
-        clearInterval(timerInterval);
+      clearInterval(timerInterval);
 
-        timerInterval = null;
+      timerInterval=null;
 
-        alert("🎉 Study session complete!");
+      alert("🎉 45 minute session complete!");
 
-      }
+    }
 
-    },1000);
+  },1000);
 }
 
 
@@ -525,7 +671,7 @@ function pauseTimer(){
 
   clearInterval(timerInterval);
 
-  timerInterval = null;
+  timerInterval=null;
 }
 
 
@@ -533,9 +679,9 @@ function resetTimer(){
 
   clearInterval(timerInterval);
 
-  timerInterval = null;
+  timerInterval=null;
 
-  time = 25 * 60;
+  time=45*60;
 
   updateTimer();
 }
