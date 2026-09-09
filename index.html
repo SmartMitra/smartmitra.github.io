@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartMitra - Study Tools</title>
+
+<title>SmartMitra - Free Online Tools</title>
 
 <style>
 *{
@@ -18,10 +19,11 @@ body{
   color:#222;
 }
 
+/* HEADER */
 header{
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
-  padding:22px 15px;
+  padding:20px;
   text-align:center;
 }
 
@@ -40,37 +42,74 @@ nav{
 nav a{
   color:white;
   text-decoration:none;
-  margin:0 10px;
+  margin:0 12px;
   font-weight:bold;
 }
 
-.hero{
+/* HOME */
+.home{
   text-align:center;
-  padding:50px 20px;
+  padding:65px 20px;
   background:white;
 }
 
-.hero h2{
-  font-size:32px;
+.home h2{
+  font-size:38px;
   color:#2563eb;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-.hero p{
+.home p{
+  font-size:18px;
   color:#555;
-  font-size:17px;
+  margin-bottom:25px;
 }
 
+.explore{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:13px 25px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* CATEGORIES */
 .container{
   max-width:1050px;
   margin:auto;
-  padding:30px 15px;
+  padding:35px 15px;
 }
 
-.section-title{
+.title{
   text-align:center;
-  margin-bottom:25px;
   font-size:28px;
+  margin-bottom:25px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.category{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.category h3{
+  color:#2563eb;
+  margin-bottom:8px;
+}
+
+/* STUDY */
+#study{
+  display:none;
 }
 
 .tools{
@@ -101,8 +140,7 @@ input,textarea{
 }
 
 textarea{
-  height:130px;
-  resize:vertical;
+  height:120px;
 }
 
 button{
@@ -118,17 +156,13 @@ button{
   cursor:pointer;
 }
 
-button:hover{
-  opacity:.9;
-}
-
 .result{
   margin-top:12px;
   padding:12px;
   background:#eef4ff;
   border-radius:8px;
-  font-weight:bold;
   text-align:center;
+  font-weight:bold;
 }
 
 .timer{
@@ -138,6 +172,7 @@ button:hover{
   color:#7c3aed;
 }
 
+/* FOOTER */
 footer{
   margin-top:30px;
   padding:25px;
@@ -147,11 +182,11 @@ footer{
 }
 
 @media(max-width:600px){
-  header h1{
-    font-size:26px;
+  .home h2{
+    font-size:28px;
   }
 
-  .hero h2{
+  header h1{
     font-size:26px;
   }
 }
@@ -160,192 +195,349 @@ footer{
 
 <body>
 
+<!-- HEADER -->
 <header>
   <h1>🚀 SmartMitra</h1>
-  <p>Smart Tools for Students</p>
+  <p>Free & Useful Online Tools</p>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#study">Study</a>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="showStudy()">Study</a>
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <h2>📚 SmartMitra Study Tools</h2>
-  <p>Free and simple tools to help students</p>
+
+<!-- HOME PAGE -->
+<section class="home" id="home">
+
+  <h2>Welcome to SmartMitra 🚀</h2>
+
+  <p>
+    Free, simple and useful tools for students and everyone.
+  </p>
+
+  <a href="#" class="explore" onclick="showStudy()">
+    📚 Explore Study Tools
+  </a>
+
 </section>
 
-<div class="container" id="study">
 
-<h2 class="section-title">🔥 Study Tools</h2>
+<!-- HOME CATEGORIES -->
+<div class="container" id="homeCategories">
 
-<div class="tools">
+  <h2 class="title">🔥 Popular Categories</h2>
 
-<!-- MARKS PERCENTAGE -->
-<div class="card">
-<h3>📊 Marks → Percentage</h3>
+  <div class="categories">
 
-<input type="number" id="marks" placeholder="Obtained Marks">
-<input type="number" id="total" placeholder="Total Marks">
+    <div class="category">
+      <h3>📚 Study</h3>
+      <p>Useful tools for students</p>
+    </div>
 
-<button onclick="percentage()">Calculate</button>
+    <div class="category">
+      <h3>💻 Technology</h3>
+      <p>Web development tools</p>
+    </div>
 
-<div class="result" id="percentageResult">
-Result will appear here
-</div>
-</div>
+    <div class="category">
+      <h3>🧮 Calculators</h3>
+      <p>Easy online calculators</p>
+    </div>
 
-<!-- CGPA -->
-<div class="card">
-<h3>🎓 CGPA → Percentage</h3>
+    <div class="category">
+      <h3>🛠️ Daily Tools</h3>
+      <p>Useful everyday tools</p>
+    </div>
 
-<input type="number" id="cgpa" step="0.01" placeholder="Enter CGPA (0-10)">
-
-<button onclick="cgpaConvert()">Convert</button>
-
-<div class="result" id="cgpaResult">
-Result will appear here
-</div>
-</div>
-
-<!-- WORD COUNTER -->
-<div class="card">
-<h3>📝 Word Counter</h3>
-
-<textarea id="text" placeholder="Type or paste your text here..."></textarea>
-
-<button onclick="countWords()">Count</button>
-
-<div class="result" id="wordResult">
-Words: 0 | Characters: 0
-</div>
-</div>
-
-<!-- STUDY TIMER -->
-<div class="card">
-<h3>⏱️ Study Timer</h3>
-
-<div class="timer" id="timer">25:00</div>
-
-<button onclick="startTimer()">▶ Start</button>
-<button onclick="pauseTimer()">⏸ Pause</button>
-<button onclick="resetTimer()">🔄 Reset</button>
-</div>
+  </div>
 
 </div>
-</div>
 
+
+<!-- STUDY PAGE -->
+<section id="study">
+
+  <div class="container">
+
+    <h2 class="title">📚 Study Tools</h2>
+
+    <div class="tools">
+
+      <!-- 1 -->
+      <div class="card">
+
+        <h3>📊 Marks → Percentage</h3>
+
+        <input
+          type="number"
+          id="marks"
+          placeholder="Obtained Marks"
+        >
+
+        <input
+          type="number"
+          id="total"
+          placeholder="Total Marks"
+        >
+
+        <button onclick="percentage()">
+          Calculate Percentage
+        </button>
+
+        <div class="result" id="percentageResult">
+          Result will appear here
+        </div>
+
+      </div>
+
+
+      <!-- 2 -->
+      <div class="card">
+
+        <h3>🎓 CGPA → Percentage</h3>
+
+        <input
+          type="number"
+          id="cgpa"
+          step="0.01"
+          placeholder="Enter CGPA (0-10)"
+        >
+
+        <button onclick="cgpaConvert()">
+          Convert
+        </button>
+
+        <div class="result" id="cgpaResult">
+          Result will appear here
+        </div>
+
+      </div>
+
+
+      <!-- 3 -->
+      <div class="card">
+
+        <h3>📝 Word Counter</h3>
+
+        <textarea
+          id="text"
+          placeholder="Type or paste your text..."
+        ></textarea>
+
+        <button onclick="countWords()">
+          Count Words
+        </button>
+
+        <div class="result" id="wordResult">
+          Words: 0 | Characters: 0
+        </div>
+
+      </div>
+
+
+      <!-- 4 -->
+      <div class="card">
+
+        <h3>⏱️ Study Timer</h3>
+
+        <div class="timer" id="timer">
+          25:00
+        </div>
+
+        <button onclick="startTimer()">
+          ▶ Start
+        </button>
+
+        <button onclick="pauseTimer()">
+          ⏸ Pause
+        </button>
+
+        <button onclick="resetTimer()">
+          🔄 Reset
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
 <footer>
-<p>© 2026 SmartMitra | Useful Tools for Students ❤️</p>
+  <p>© 2026 SmartMitra | Free Useful Tools ❤️</p>
 </footer>
+
 
 <script>
 
-// MARKS → PERCENTAGE
+/* PAGE SWITCH */
+
+function showHome(){
+
+  document.getElementById("home").style.display="block";
+
+  document.getElementById("homeCategories").style.display="block";
+
+  document.getElementById("study").style.display="none";
+
+  window.scrollTo(0,0);
+}
+
+
+function showStudy(){
+
+  document.getElementById("home").style.display="none";
+
+  document.getElementById("homeCategories").style.display="none";
+
+  document.getElementById("study").style.display="block";
+
+  window.scrollTo(0,0);
+}
+
+
+/* PERCENTAGE */
+
 function percentage(){
 
-let marks=Number(document.getElementById("marks").value);
-let total=Number(document.getElementById("total").value);
+  let marks =
+    Number(document.getElementById("marks").value);
 
-if(marks<0 || total<=0 || marks>total){
+  let total =
+    Number(document.getElementById("total").value);
 
-document.getElementById("percentageResult").innerText=
-"⚠️ Please enter valid marks";
+  if(
+    marks < 0 ||
+    total <= 0 ||
+    marks > total
+  ){
 
-return;
+    document.getElementById("percentageResult").innerText =
+      "⚠️ Please enter valid marks";
+
+    return;
+  }
+
+  let result = (marks / total) * 100;
+
+  document.getElementById("percentageResult").innerText =
+    "Percentage: " + result.toFixed(2) + "%";
 }
 
-let result=(marks/total)*100;
 
-document.getElementById("percentageResult").innerText=
-"Percentage: "+result.toFixed(2)+"%";
-}
+/* CGPA */
 
-
-// CGPA → PERCENTAGE
 function cgpaConvert(){
 
-let cgpa=Number(document.getElementById("cgpa").value);
+  let cgpa =
+    Number(document.getElementById("cgpa").value);
 
-if(cgpa<0 || cgpa>10){
+  if(cgpa < 0 || cgpa > 10){
 
-document.getElementById("cgpaResult").innerText=
-"⚠️ Enter CGPA between 0 and 10";
+    document.getElementById("cgpaResult").innerText =
+      "⚠️ Enter CGPA between 0 and 10";
 
-return;
+    return;
+  }
+
+  let result = cgpa * 9.5;
+
+  document.getElementById("cgpaResult").innerText =
+    "Approx. Percentage: " +
+    result.toFixed(2) + "%";
 }
 
-let result=cgpa*9.5;
 
-document.getElementById("cgpaResult").innerText=
-"Approx. Percentage: "+result.toFixed(2)+"%";
-}
+/* WORD COUNTER */
 
-
-// WORD COUNTER
 function countWords(){
 
-let text=document.getElementById("text").value.trim();
+  let text =
+    document.getElementById("text").value.trim();
 
-let words=text==="" ? 0 : text.split(/\s+/).length;
-let characters=text.length;
+  let words =
+    text === "" ? 0 : text.split(/\s+/).length;
 
-document.getElementById("wordResult").innerText=
-"Words: "+words+" | Characters: "+characters;
+  let characters =
+    text.length;
+
+  document.getElementById("wordResult").innerText =
+    "Words: " + words +
+    " | Characters: " + characters;
 }
 
 
-// STUDY TIMER
-let time=25*60;
-let timerInterval=null;
+/* TIMER */
+
+let time = 25 * 60;
+
+let timerInterval = null;
+
 
 function updateTimer(){
 
-let minutes=Math.floor(time/60);
-let seconds=time%60;
+  let minutes =
+    Math.floor(time / 60);
 
-document.getElementById("timer").innerText=
-String(minutes).padStart(2,"0")+":"+
-String(seconds).padStart(2,"0");
+  let seconds =
+    time % 60;
+
+  document.getElementById("timer").innerText =
+    String(minutes).padStart(2,"0") +
+    ":" +
+    String(seconds).padStart(2,"0");
 }
+
 
 function startTimer(){
 
-if(timerInterval!==null) return;
+  if(timerInterval !== null) return;
 
-timerInterval=setInterval(function(){
+  timerInterval =
+    setInterval(function(){
 
-if(time>0){
+      if(time > 0){
 
-time--;
-updateTimer();
+        time--;
 
-}else{
+        updateTimer();
 
-clearInterval(timerInterval);
-timerInterval=null;
+      }
+      else{
 
-alert("🎉 Study session complete!");
+        clearInterval(timerInterval);
 
+        timerInterval = null;
+
+        alert("🎉 Study session complete!");
+
+      }
+
+    },1000);
 }
 
-},1000);
-}
 
 function pauseTimer(){
 
-clearInterval(timerInterval);
-timerInterval=null;
+  clearInterval(timerInterval);
+
+  timerInterval = null;
 }
+
 
 function resetTimer(){
 
-clearInterval(timerInterval);
-timerInterval=null;
+  clearInterval(timerInterval);
 
-time=25*60;
+  timerInterval = null;
 
-updateTimer();
+  time = 25 * 60;
+
+  updateTimer();
 }
 
 </script>
