@@ -3,2233 +3,1564 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartMitra - Smart Tools</title>
+<meta name="description" content="SmartMitra - Free study, technology, calculator and daily useful tools.">
 
-<title>SmartMitra - Free Useful Tools</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
 font-family:Arial,sans-serif;
 background:#f4f7fb;
 color:#222;
+line-height:1.5
 }
-
 header{
 background:linear-gradient(135deg,#2563eb,#7c3aed);
 color:white;
-padding:28px 15px;
-text-align:center;
+padding:22px 15px;
+text-align:center
 }
-
-header h1{
-font-size:34px;
-margin-bottom:8px;
-}
-
-header p{
-font-size:16px;
-}
-
+header h1{font-size:32px}
+header p{margin-top:5px}
 nav{
-background:white;
-padding:12px;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:8px;
-box-shadow:0 2px 10px #ddd;
+padding:12px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:10
 }
-
 nav button{
 border:0;
 background:#eef2ff;
-padding:11px 17px;
+padding:10px 15px;
 border-radius:10px;
-font-weight:bold;
 cursor:pointer;
+font-size:15px;
+font-weight:bold
 }
-
-nav button:hover{
-background:#dbe4ff;
-}
-
+nav button:hover{background:#dbeafe}
 .container{
 max-width:1100px;
 margin:auto;
-padding:25px 15px;
+padding:20px
 }
-
-.page{
-display:none;
+.page{display:none}
+.page.active{display:block}
+.hero{
+background:white;
+padding:35px 20px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,.07);
+margin-bottom:25px
 }
-
-.page.active{
-display:block;
+.hero h2{font-size:30px;color:#2563eb;margin-bottom:8px}
+.section-title{
+font-size:25px;
+margin:25px 0 15px
 }
-
-h2{
-color:#1e3a8a;
-margin-bottom:12px;
-}
-
-.subtitle{
-color:#666;
-margin-bottom:25px;
-}
-
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
+gap:15px
 }
-
 .card{
 background:white;
-padding:23px;
-border-radius:16px;
-box-shadow:0 3px 12px #ddd;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 12px rgba(0,0,0,.07);
 cursor:pointer;
-transition:.2s;
+transition:.2s
 }
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 7px 18px #ccc;
-}
-
-.card h3{
-margin-bottom:9px;
-}
-
-.card p{
-color:#666;
-font-size:14px;
-line-height:1.5;
-}
-
+.card:hover{transform:translateY(-3px)}
+.card h3{margin-bottom:6px}
 .tool{
 background:white;
 padding:22px;
-border-radius:16px;
-box-shadow:0 3px 12px #ddd;
-margin-bottom:18px;
+border-radius:15px;
+box-shadow:0 3px 12px rgba(0,0,0,.07);
+margin-bottom:18px
 }
-
-.tool h3{
-margin-bottom:15px;
-}
-
-input,
-select,
-textarea{
+.tool h2{color:#2563eb;margin-bottom:12px}
+input,select,textarea{
 width:100%;
-padding:12px;
-margin:7px 0 12px;
-border:1px solid #ccc;
-border-radius:9px;
-font-size:15px;
+padding:11px;
+margin:6px 0 10px;
+border:1px solid #ccd3df;
+border-radius:8px;
+font-size:15px
 }
-
-button.action{
+textarea{min-height:120px;resize:vertical}
+button.primary{
 background:#2563eb;
 color:white;
 border:0;
-padding:11px 18px;
-border-radius:9px;
+padding:11px 17px;
+border-radius:8px;
 cursor:pointer;
-font-weight:bold;
-margin:3px;
+font-weight:bold
 }
-
-button.action:hover{
-background:#1d4ed8;
-}
-
-button.back{
-background:#555;
+button.primary:hover{background:#1d4ed8}
+button.secondary{
+background:#64748b;
 color:white;
 border:0;
-padding:10px 16px;
-border-radius:9px;
-cursor:pointer;
-margin-bottom:20px;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer
 }
-
 .result{
-margin-top:13px;
-padding:13px;
-background:#eef6ff;
-border-radius:9px;
+background:#f1f5f9;
+padding:12px;
+border-radius:8px;
+margin-top:10px;
 font-weight:bold;
-word-break:break-word;
+word-break:break-word
 }
-
-.result a{
-color:#2563eb;
-font-weight:bold;
-text-decoration:none;
+.back{
+margin-bottom:18px;
+background:#e2e8f0;
+border:0;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer
 }
-
-.preview{
-max-width:100%;
-margin-top:15px;
-border-radius:10px;
-}
-
+.small{font-size:13px;color:#64748b}
 footer{
-margin-top:40px;
-padding:25px;
+margin-top:35px;
 background:#111827;
 color:white;
 text-align:center;
+padding:25px
 }
-
-.home{
-text-align:center;
+hr{border:0;border-top:1px solid #ddd;margin:18px 0}
+label{font-weight:bold;display:block;margin-top:5px}
+.two{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px
 }
-
-.home h2{
-font-size:30px;
+@media(max-width:650px){
+.two{grid-template-columns:1fr}
+header h1{font-size:26px}
+nav button{font-size:13px;padding:8px 10px}
+.container{padding:12px}
 }
-
-@media(max-width:600px){
-
-header h1{
-font-size:27px;
-}
-
-nav button{
-font-size:13px;
-padding:9px 11px;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
 <header>
-
 <h1>🚀 SmartMitra</h1>
-
-<p>Free Useful Tools for Everyone</p>
-
+<p>Smart Tools for Study, Technology & Daily Life</p>
 </header>
 
-
 <nav>
-
-<button onclick="showPage('home')">
-🏠 Home
-</button>
-
-<button onclick="showPage('study')">
-📚 Study
-</button>
-
-<button onclick="showPage('technology')">
-💻 Technology
-</button>
-
-<button onclick="showPage('calculators')">
-🧮 Calculators
-</button>
-
-<button onclick="showPage('daily')">
-🛠️ Daily Tools
-</button>
-
+<button onclick="showPage('home')">🏠 Home</button>
+<button onclick="showPage('study')">📚 Study</button>
+<button onclick="showPage('technology')">💻 Technology</button>
+<button onclick="showPage('calculators')">🧮 Calculators</button>
+<button onclick="showPage('daily')">🛠️ Daily Tools</button>
 </nav>
-
 
 <div class="container">
 
-
 <!-- HOME -->
-
-<section id="home" class="page active home">
-
+<section id="home" class="page active">
+<div class="hero">
 <h2>Welcome to SmartMitra</h2>
-
-<p class="subtitle">
-Simple, free and useful online tools.
-</p>
-
-<h2>🔥 Popular Categories</h2>
-
-<div class="grid">
-
-<div class="card" onclick="showPage('study')">
-
-<h3>📚 Study</h3>
-
-<p>
-Useful tools and resources for students.
-</p>
-
+<p>Free and simple tools for students and everyday work.</p>
 </div>
 
+<h2 class="section-title">🔥 Popular Categories</h2>
+<div class="grid">
+<div class="card" onclick="showPage('study')">
+<h3>📚 Study</h3>
+<p>Useful tools for students.</p>
+</div>
 
 <div class="card" onclick="showPage('technology')">
-
 <h3>💻 Technology</h3>
-
-<p>
-Technology and website development tools.
-</p>
-
+<p>Technology related useful tools.</p>
 </div>
-
 
 <div class="card" onclick="showPage('calculators')">
-
 <h3>🧮 Calculators</h3>
-
-<p>
-Useful calculators for everyday needs.
-</p>
-
+<p>Fast and simple calculators.</p>
 </div>
-
 
 <div class="card" onclick="showPage('daily')">
-
 <h3>🛠️ Daily Tools</h3>
-
-<p>
-Image, PDF, converter, text, time and many more tools.
-</p>
-
+<p>Useful everyday online tools.</p>
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- STUDY -->
-
 <section id="study" class="page">
+<button class="back" onclick="showPage('home')">← Back</button>
+<h2 class="section-title">📚 Study Tools</h2>
 
-<button class="back" onclick="showPage('home')">
-← Back to Home
-</button>
-
-<h2>📚 Study</h2>
-
-<p class="subtitle">
-Study resources and student tools.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>📖 Study Resources</h3>
-<p>Useful study resources.</p>
+<div class="tool">
+<h2>📝 Word & Character Counter</h2>
+<textarea id="wordText" oninput="countWords()"
+placeholder="Type or paste your text..."></textarea>
+<div class="result" id="wordResult">Words: 0 | Characters: 0</div>
 </div>
 
-<div class="card">
-<h3>📝 Notes</h3>
-<p>Learning notes and resources.</p>
+<div class="tool">
+<h2>📊 Marks → Percentage</h2>
+<div class="two">
+<div>
+<label>Obtained Marks</label>
+<input type="number" id="marksObtained">
+</div>
+<div>
+<label>Total Marks</label>
+<input type="number" id="marksTotal">
+</div>
+</div>
+<button class="primary" onclick="marksPercentage()">Calculate</button>
+<div class="result" id="marksResult"></div>
 </div>
 
-<div class="card">
-<h3>🎯 Study Planner</h3>
-<p>Plan your study sessions.</p>
+<div class="tool">
+<h2>🎓 CGPA → Percentage</h2>
+<input type="number" step="0.01" id="cgpa" placeholder="Enter CGPA">
+<button class="primary" onclick="cgpaPercentage()">Convert</button>
+<div class="result" id="cgpaResult"></div>
 </div>
 
+<div class="tool">
+<h2>⏰ 45-Minute Study Timer</h2>
+<div class="result" id="studyTimer">45:00</div>
+<button class="primary" onclick="startStudyTimer()">Start</button>
+<button class="secondary" onclick="pauseStudyTimer()">Pause</button>
+<button class="secondary" onclick="resetStudyTimer()">Reset</button>
 </div>
-
 </section>
-
-
 
 <!-- TECHNOLOGY -->
-
 <section id="technology" class="page">
+<button class="back" onclick="showPage('home')">← Back</button>
+<h2 class="section-title">💻 Technology Tools</h2>
 
-<button class="back" onclick="showPage('home')">
-← Back to Home
-</button>
-
-<h2>💻 Technology</h2>
-
-<p class="subtitle">
-Technology and development tools.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>🌐 Website Development</h3>
-<p>Useful tools for creating websites.</p>
+<div class="tool">
+<h2>🔗 URL Encoder / Decoder</h2>
+<input id="urlText" placeholder="Enter URL or text">
+<button class="primary" onclick="encodeURL()">Encode</button>
+<button class="secondary" onclick="decodeURL()">Decode</button>
+<div class="result" id="urlResult"></div>
 </div>
 
-<div class="card">
-<h3>💻 Code Tools</h3>
-<p>Useful coding utilities.</p>
+<div class="tool">
+<h2>🔳 QR Code Generator</h2>
+<input id="qrText" placeholder="Enter text or URL">
+<button class="primary" onclick="generateQR()">Generate QR</button>
+<div id="qrResult" style="margin-top:15px;text-align:center"></div>
 </div>
 
-<div class="card">
-<h3>🤖 AI Tools</h3>
-<p>Useful AI resources.</p>
+<div class="tool">
+<h2>🔐 Password Generator</h2>
+<input type="number" id="passLength" value="12" min="4" max="100">
+<button class="primary" onclick="generatePassword()">Generate Password</button>
+<div class="result" id="passwordResult"></div>
 </div>
-
-</div>
-
 </section>
-
-
 
 <!-- CALCULATORS -->
-
 <section id="calculators" class="page">
-
-<button class="back" onclick="showPage('home')">
-← Back to Home
-</button>
-
-<h2>🧮 Calculators</h2>
-
-<p class="subtitle">
-Useful calculators.
-</p>
-
-<div class="grid">
+<button class="back" onclick="showPage('home')">← Back</button>
+<h2 class="section-title">🧮 Calculators</h2>
 
 <div class="tool">
-
-<h3>📊 Percentage Calculator</h3>
-
-<input
-type="number"
-id="calcObtained"
-placeholder="Marks obtained"
->
-
-<input
-type="number"
-id="calcTotal"
-placeholder="Total marks"
->
-
-<button class="action" onclick="calculatePercentage()">
-Calculate
-</button>
-
-<div id="percentageResult" class="result"></div>
-
+<h2>📊 Percentage Calculator</h2>
+<div class="two">
+<input type="number" id="percentValue" placeholder="Value">
+<input type="number" id="percentTotal" placeholder="Total">
 </div>
-
+<button class="primary" onclick="percentageCalc()">Calculate</button>
+<div class="result" id="percentResult"></div>
+</div>
 
 <div class="tool">
-
-<h3>🎂 Age Calculator</h3>
-
-<input
-type="date"
-id="birthDate"
->
-
-<button class="action" onclick="calculateAge()">
-Calculate Age
-</button>
-
-<div id="ageResult" class="result"></div>
-
+<h2>🎂 Age Calculator</h2>
+<label>Date of Birth</label>
+<input type="date" id="dob">
+<button class="primary" onclick="ageCalc()">Calculate Age</button>
+<div class="result" id="ageResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>🏦 EMI Calculator</h3>
-
-<p>Coming soon.</p>
-
+<h2>💰 EMI Calculator</h2>
+<div class="two">
+<input type="number" id="loanAmount" placeholder="Loan Amount">
+<input type="number" id="interestRate" placeholder="Annual Interest %">
 </div>
-
+<input type="number" id="loanYears" placeholder="Loan period in years">
+<button class="primary" onclick="emiCalc()">Calculate EMI</button>
+<div class="result" id="emiResult"></div>
+</div>
 
 <div class="tool">
-
-<h3>🧾 GST Calculator</h3>
-
-<p>Coming soon.</p>
-
+<h2>🧾 GST Calculator</h2>
+<input type="number" id="gstAmount" placeholder="Amount">
+<input type="number" id="gstRate" placeholder="GST %">
+<button class="primary" onclick="gstCalc()">Calculate</button>
+<div class="result" id="gstResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>⚖️ BMI Calculator</h3>
-
-<p>Coming soon.</p>
-
+<h2>⚖️ BMI Calculator</h2>
+<input type="number" id="bmiWeight" placeholder="Weight (kg)">
+<input type="number" id="bmiHeight" placeholder="Height (cm)">
+<button class="primary" onclick="bmiCalc()">Calculate BMI</button>
+<div class="result" id="bmiResult"></div>
+<p class="small">BMI is a general health-information calculation and is not a diagnosis.</p>
 </div>
 
+<div class="tool">
+<h2>💸 Discount Calculator</h2>
+<input type="number" id="discountPrice" placeholder="Original Price">
+<input type="number" id="discountRate" placeholder="Discount %">
+<button class="primary" onclick="discountCalc()">Calculate</button>
+<div class="result" id="discountResult"></div>
 </div>
-
 </section>
-
-
 
 <!-- DAILY TOOLS -->
-
 <section id="daily" class="page">
+<button class="back" onclick="showPage('home')">← Back</button>
 
-<button class="back" onclick="showPage('home')">
-← Back to Home
-</button>
+<h2 class="section-title">🛠️ Daily Tools</h2>
 
-<h2>🛠️ Daily Tools</h2>
+<div id="dailyCategories" class="grid">
 
-<p class="subtitle">
-Choose a tool category.
-</p>
-
-
-<div class="grid">
-
-
-<div class="card" onclick="showPage('imageTools')">
-
+<div class="card" onclick="showDaily('imageTools')">
 <h3>🖼️ Image Tools</h3>
-
-<p>
-Compress, resize and convert images.
-</p>
-
+<p>Compress, resize and convert images.</p>
 </div>
 
-
-<div class="card" onclick="showPage('pdfTools')">
-
+<div class="card" onclick="showDaily('pdfTools')">
 <h3>📄 PDF Tools</h3>
-
-<p>
-Merge, split and compress PDF files.
-</p>
-
+<p>Merge, split and optimize PDF files.</p>
 </div>
 
-
-<div class="card" onclick="showPage('converterTools')">
-
+<div class="card" onclick="showDaily('converterTools')">
 <h3>🔄 Converters</h3>
-
-<p>
-Length, weight, temperature, time and storage.
-</p>
-
+<p>Length, weight, temperature and more.</p>
 </div>
 
-
-<div class="card" onclick="showPage('textTools')">
-
+<div class="card" onclick="showDaily('textTools')">
 <h3>📝 Text Tools</h3>
-
-<p>
-Word counter, case converter and text utilities.
-</p>
-
+<p>Text formatting and cleaning tools.</p>
 </div>
 
-
-<div class="card" onclick="showPage('timeTools')">
-
+<div class="card" onclick="showDaily('timeTools')">
 <h3>⏰ Time & Date</h3>
-
-<p>
-Stopwatch, countdown and date tools.
-</p>
-
+<p>Stopwatch, countdown and date tools.</p>
 </div>
 
-
-<div class="card" onclick="showPage('internetTools')">
-
+<div class="card" onclick="showDaily('internetTools')">
 <h3>🌐 Internet Tools</h3>
-
-<p>
-QR, password and URL tools.
-</p>
-
+<p>QR, password and URL tools.</p>
 </div>
 
-
-<div class="card" onclick="showPage('usefulTools')">
-
+<div class="card" onclick="showDaily('usefulTools')">
 <h3>🧮 Useful Tools</h3>
-
-<p>
-Marks, CGPA, study timer and discount.
-</p>
-
+<p>Useful everyday calculators.</p>
 </div>
 
-
-<div class="card" onclick="showPage('moreTools')">
-
+<div class="card" onclick="showDaily('moreTools')">
 <h3>➕ More Tools</h3>
-
-<p>
-More useful everyday tools.
-</p>
-
+<p>More useful tools coming soon.</p>
 </div>
 
-
 </div>
-
-</section>
-
-
 
 <!-- IMAGE TOOLS -->
-
-<section id="imageTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="imageTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>🖼️ Image Tools</h2>
 
-<p class="subtitle">
-Choose an image tool.
-</p>
-
+<div class="tool">
+<h2>🎯 Target KB Image Compressor</h2>
+<p class="small">Enter your target size. The tool will try to make the image as close as possible.</p>
+<input type="number" id="targetKB" placeholder="Target size in KB e.g. 50">
+<input type="file" id="compressFile" accept="image/*">
+<button class="primary" onclick="compressImage()">Compress Image</button>
+<div class="result" id="compressResult"></div>
+</div>
 
 <div class="tool">
-
-<h3>📦 Image Compressor</h3>
-
-<label>
-<b>Target Size (KB)</b>
-</label>
-
-<input
-type="number"
-id="targetKB"
-min="1"
-step="1"
-placeholder="Example: 50"
->
-
-
-<label>
-<b>Choose Image</b>
-</label>
-
-<input
-type="file"
-id="imageFile"
-accept="image/*"
->
-
-
-<button class="action" onclick="compressImage()">
-🔽 Compress Image
-</button>
-
-
-<div
-id="compressStatus"
-class="result"
->
-Enter KB and choose an image.
+<h2>📐 Image Resizer</h2>
+<input type="file" id="resizeFile" accept="image/*">
+<div class="two">
+<input type="number" id="resizeWidth" placeholder="Width (px)">
+<input type="number" id="resizeHeight" placeholder="Height (px)">
 </div>
-
+<button class="primary" onclick="resizeImage()">Resize Image</button>
+<div class="result" id="resizeResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>📐 Image Resizer</h3>
-
-<p>
-Image Resizer coming soon.
-</p>
-
+<h2>🔄 JPG / PNG / WEBP Converter</h2>
+<input type="file" id="convertImageFile" accept="image/*">
+<select id="imageFormat">
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WEBP</option>
+</select>
+<button class="primary" onclick="convertImage()">Convert Image</button>
+<div class="result" id="convertImageResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>🔄 JPG / PNG Converter</h3>
-
-<p>
-JPG / PNG Converter coming soon.
-</p>
-
+<h2>🖼️ Image → PDF</h2>
+<input type="file" id="imagePdfFile" accept="image/*">
+<button class="primary" onclick="imageToPDF()">Convert to PDF</button>
+<div class="result" id="imagePdfResult"></div>
 </div>
-
-
-<div class="tool">
-
-<h3>📄 Image → PDF</h3>
-
-<p>
-Image to PDF coming soon.
-</p>
-
 </div>
-
-</section>
-
-
 
 <!-- PDF TOOLS -->
-
-<section id="pdfTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="pdfTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>📄 PDF Tools</h2>
 
-<p class="subtitle">
-Choose a PDF tool.
-</p>
-
-
-<div class="grid">
-
+<div class="tool">
+<h2>📑 PDF Merge</h2>
+<input type="file" id="mergePDFs" accept="application/pdf" multiple>
+<button class="primary" onclick="mergePDF()">Merge PDFs</button>
+<div class="result" id="mergePDFResult"></div>
+</div>
 
 <div class="tool">
-
-<h3>📑 PDF Merge</h3>
-
-<p>
-Combine multiple PDF files.
-</p>
-
-<br>
-
-<button class="action" onclick="comingSoon()">
-Open Tool
-</button>
-
+<h2>✂️ PDF Split</h2>
+<input type="file" id="splitPDF" accept="application/pdf">
+<input type="number" id="splitPage" placeholder="Page number" min="1">
+<button class="primary" onclick="splitPDF()">Extract Page</button>
+<div class="result" id="splitPDFResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>✂️ PDF Split</h3>
-
-<p>
-Split PDF pages.
-</p>
-
-<br>
-
-<button class="action" onclick="comingSoon()">
-Open Tool
-</button>
-
+<h2>🗜️ PDF Compress / Optimize</h2>
+<input type="file" id="compressPDF" accept="application/pdf">
+<button class="primary" onclick="compressPDFFile()">Optimize PDF</button>
+<div class="result" id="compressPDFResult"></div>
+<p class="small">PDF optimization may not reduce every PDF's file size.</p>
 </div>
-
-
-<div class="tool">
-
-<h3>📦 PDF Compress</h3>
-
-<p>
-Reduce PDF file size.
-</p>
-
-<br>
-
-<button class="action" onclick="comingSoon()">
-Open Tool
-</button>
-
 </div>
-
-
-</div>
-
-</section>
-
-
 
 <!-- CONVERTERS -->
-
-<section id="converterTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="converterTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>🔄 Converters</h2>
 
-<p class="subtitle">
-Useful unit converters.
-</p>
-
-
 <div class="tool">
-
-<h3>📏 Length Converter</h3>
-
-<input
-type="number"
-id="lengthValue"
-placeholder="Enter value"
->
-
-
+<h2>📏 Length Converter</h2>
+<input type="number" id="lengthValue" placeholder="Value">
 <select id="lengthFrom">
-
 <option value="m">Meter</option>
-
 <option value="km">Kilometer</option>
-
 <option value="cm">Centimeter</option>
-
 <option value="mm">Millimeter</option>
-
 <option value="ft">Feet</option>
-
 <option value="in">Inch</option>
-
+<option value="mi">Mile</option>
 </select>
-
-
 <select id="lengthTo">
-
 <option value="m">Meter</option>
-
 <option value="km">Kilometer</option>
-
 <option value="cm">Centimeter</option>
-
 <option value="mm">Millimeter</option>
-
 <option value="ft">Feet</option>
-
 <option value="in">Inch</option>
-
+<option value="mi">Mile</option>
 </select>
-
-
-<button class="action" onclick="convertLength()">
-Convert
-</button>
-
-
-<div id="lengthResult" class="result"></div>
-
+<button class="primary" onclick="lengthConvert()">Convert</button>
+<div class="result" id="lengthResult"></div>
 </div>
-
-
-<div class="grid">
 
 <div class="tool">
-
-<h3>⚖️ Weight Converter</h3>
-
-<p>Coming soon.</p>
-
+<h2>⚖️ Weight Converter</h2>
+<input type="number" id="weightValue" placeholder="Value">
+<select id="weightFrom">
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="mg">Milligram</option>
+<option value="lb">Pound</option>
+<option value="oz">Ounce</option>
+</select>
+<select id="weightTo">
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="mg">Milligram</option>
+<option value="lb">Pound</option>
+<option value="oz">Ounce</option>
+</select>
+<button class="primary" onclick="weightConvert()">Convert</button>
+<div class="result" id="weightResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>🌡️ Temperature Converter</h3>
-
-<p>Coming soon.</p>
-
+<h2>🌡️ Temperature Converter</h2>
+<input type="number" id="tempValue" placeholder="Value">
+<select id="tempFrom">
+<option value="C">Celsius</option>
+<option value="F">Fahrenheit</option>
+<option value="K">Kelvin</option>
+</select>
+<select id="tempTo">
+<option value="C">Celsius</option>
+<option value="F">Fahrenheit</option>
+<option value="K">Kelvin</option>
+</select>
+<button class="primary" onclick="temperatureConvert()">Convert</button>
+<div class="result" id="tempResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>⏱️ Time Converter</h3>
-
-<p>Coming soon.</p>
-
+<h2>⏱️ Time Converter</h2>
+<input type="number" id="timeValue" placeholder="Value">
+<select id="timeFrom">
+<option value="sec">Seconds</option>
+<option value="min">Minutes</option>
+<option value="hour">Hours</option>
+<option value="day">Days</option>
+</select>
+<select id="timeTo">
+<option value="sec">Seconds</option>
+<option value="min">Minutes</option>
+<option value="hour">Hours</option>
+<option value="day">Days</option>
+</select>
+<button class="primary" onclick="timeConvert()">Convert</button>
+<div class="result" id="timeResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>💾 Data Storage</h3>
-
-<p>Coming soon.</p>
-
+<h2>💾 Data Storage Converter</h2>
+<input type="number" id="dataValue" placeholder="Value">
+<select id="dataFrom">
+<option value="B">Bytes</option>
+<option value="KB">KB</option>
+<option value="MB">MB</option>
+<option value="GB">GB</option>
+<option value="TB">TB</option>
+</select>
+<select id="dataTo">
+<option value="B">Bytes</option>
+<option value="KB">KB</option>
+<option value="MB">MB</option>
+<option value="GB">GB</option>
+<option value="TB">TB</option>
+</select>
+<button class="primary" onclick="dataConvert()">Convert</button>
+<div class="result" id="dataResult"></div>
 </div>
-
 </div>
-
-</section>
-
-
 
 <!-- TEXT TOOLS -->
-
-<section id="textTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="textTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>📝 Text Tools</h2>
 
+<div class="tool">
+<h2>🔠 Case Converter</h2>
+<textarea id="caseText" placeholder="Enter text..."></textarea>
+<button class="primary" onclick="caseUpper()">UPPERCASE</button>
+<button class="secondary" onclick="caseLower()">lowercase</button>
+<button class="secondary" onclick="caseTitle()">Title Case</button>
+</div>
 
 <div class="tool">
-
-<h3>🔢 Word & Character Counter</h3>
-
-<textarea
-id="counterText"
-rows="7"
-placeholder="Type or paste your text..."
-oninput="countText()"
-></textarea>
-
-<div id="counterResult" class="result">
-Words: 0 | Characters: 0
+<h2>🧹 Remove Extra Spaces</h2>
+<textarea id="spaceText" placeholder="Enter text..."></textarea>
+<button class="primary" onclick="removeSpaces()">Remove Extra Spaces</button>
 </div>
-
-</div>
-
 
 <div class="tool">
-
-<h3>🔠 Case Converter</h3>
-
-<textarea
-id="caseText"
-rows="5"
-placeholder="Enter text..."
-></textarea>
-
-<button class="action" onclick="makeUpper()">
-UPPERCASE
-</button>
-
-<button class="action" onclick="makeLower()">
-lowercase
-</button>
-
-<button class="action" onclick="makeTitle()">
-Title Case
-</button>
-
+<h2>🔎 Find & Replace</h2>
+<textarea id="findText" placeholder="Enter text..."></textarea>
+<input id="findWord" placeholder="Find">
+<input id="replaceWord" placeholder="Replace with">
+<button class="primary" onclick="findReplace()">Replace</button>
+</div>
 </div>
 
-
-<div class="tool">
-
-<h3>🧹 Remove Extra Spaces</h3>
-
-<textarea
-id="spaceText"
-rows="5"
-placeholder="Enter text..."
-></textarea>
-
-<button class="action" onclick="removeSpaces()">
-Clean Text
-</button>
-
-<div id="spaceResult" class="result"></div>
-
-</div>
-
-
-<div class="tool">
-
-<h3>🔎 Find & Replace</h3>
-
-<textarea
-id="findText"
-rows="5"
-placeholder="Enter your text..."
-></textarea>
-
-<input
-id="findWord"
-placeholder="Find"
-/>
-
-<input
-id="replaceWord"
-placeholder="Replace with"
-/>
-
-<button class="action" onclick="findReplace()">
-Replace
-</button>
-
-<div id="replaceResult" class="result"></div>
-
-</div>
-
-</section>
-
-
-
-<!-- TIME & DATE -->
-
-<section id="timeTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<!-- TIME TOOLS -->
+<div id="timeTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>⏰ Time & Date</h2>
 
+<div class="tool">
+<h2>⏱️ Stopwatch</h2>
+<div class="result" id="stopwatch">00:00:00</div>
+<button class="primary" onclick="startStopwatch()">Start</button>
+<button class="secondary" onclick="pauseStopwatch()">Pause</button>
+<button class="secondary" onclick="resetStopwatch()">Reset</button>
+</div>
 
 <div class="tool">
-
-<h3>⏱️ Stopwatch</h3>
-
-<div id="stopwatchDisplay" class="result">
-00:00:00
+<h2>⏳ Countdown Timer</h2>
+<input type="number" id="countdownMinutes" placeholder="Minutes">
+<div class="result" id="countdownDisplay">00:00</div>
+<button class="primary" onclick="startCountdown()">Start</button>
+<button class="secondary" onclick="pauseCountdown()">Pause</button>
+<button class="secondary" onclick="resetCountdown()">Reset</button>
 </div>
-
-<br>
-
-<button class="action" onclick="startStopwatch()">
-Start
-</button>
-
-<button class="action" onclick="stopStopwatch()">
-Stop
-</button>
-
-<button class="action" onclick="resetStopwatch()">
-Reset
-</button>
-
-</div>
-
 
 <div class="tool">
-
-<h3>⏳ Countdown Timer</h3>
-
-<input
-type="number"
-id="countdownSeconds"
-placeholder="Seconds"
-/>
-
-<button class="action" onclick="startCountdown()">
-Start
-</button>
-
-<div id="countdownDisplay" class="result">
-00
+<h2>📅 Date Difference</h2>
+<input type="date" id="date1">
+<input type="date" id="date2">
+<button class="primary" onclick="dateDifference()">Calculate Difference</button>
+<div class="result" id="dateDifferenceResult"></div>
 </div>
-
-</div>
-
 
 <div class="tool">
-
-<h3>📅 Date Difference</h3>
-
-<input
-type="date"
-id="dateOne"
-/>
-
-<input
-type="date"
-id="dateTwo"
-/>
-
-<button class="action" onclick="dateDifference()">
-Calculate
-</button>
-
-<div id="dateDifferenceResult" class="result"></div>
-
+<h2>🎂 Age Calculator</h2>
+<input type="date" id="ageDOB">
+<button class="primary" onclick="ageCalc2()">Calculate Age</button>
+<div class="result" id="ageResult2"></div>
 </div>
-
-</section>
-
-
+</div>
 
 <!-- INTERNET TOOLS -->
-
-<section id="internetTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="internetTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>🌐 Internet Tools</h2>
 
-
 <div class="tool">
-
-<h3>📱 QR Code Generator</h3>
-
-<input
-type="text"
-id="qrText"
-placeholder="Enter text or URL"
-/>
-
-<button class="action" onclick="generateQR()">
-Generate QR
-</button>
-
-<div id="qrResult" class="result"></div>
-
+<h2>🔳 QR Code Generator</h2>
+<input id="dailyQRText" placeholder="Enter text or URL">
+<button class="primary" onclick="generateDailyQR()">Generate QR</button>
+<div id="dailyQRResult" style="margin-top:15px;text-align:center"></div>
 </div>
 
-
 <div class="tool">
-
-<h3>🔐 Password Generator</h3>
-
-<button class="action" onclick="generatePassword()">
-Generate Password
-</button>
-
-<div id="passwordResult" class="result"></div>
-
+<h2>🔐 Password Generator</h2>
+<input type="number" id="dailyPassLength" value="16" min="4" max="100">
+<button class="primary" onclick="generateDailyPassword()">Generate</button>
+<div class="result" id="dailyPasswordResult"></div>
 </div>
 
-
 <div class="tool">
-
-<h3>🔗 URL Encoder / Decoder</h3>
-
-<textarea
-id="urlText"
-rows="4"
-placeholder="Enter URL or text..."
-></textarea>
-
-<button class="action" onclick="encodeURL()">
-Encode
-</button>
-
-<button class="action" onclick="decodeURL()">
-Decode
-</button>
-
+<h2>🔗 URL Encoder / Decoder</h2>
+<input id="dailyURLText" placeholder="Enter URL or text">
+<button class="primary" onclick="dailyEncodeURL()">Encode</button>
+<button class="secondary" onclick="dailyDecodeURL()">Decode</button>
+<div class="result" id="dailyURLResult"></div>
 </div>
-
-</section>
-
-
+</div>
 
 <!-- USEFUL TOOLS -->
-
-<section id="usefulTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="usefulTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>🧮 Useful Tools</h2>
 
+<div class="tool">
+<h2>📊 Marks → Percentage</h2>
+<input type="number" id="useMarks" placeholder="Obtained Marks">
+<input type="number" id="useTotal" placeholder="Total Marks">
+<button class="primary" onclick="useMarksPercentage()">Calculate</button>
+<div class="result" id="useMarksResult"></div>
+</div>
 
 <div class="tool">
-
-<h3>📊 Marks → Percentage</h3>
-
-<input
-type="number"
-id="marksObtained"
-placeholder="Marks obtained"
-/>
-
-<input
-type="number"
-id="marksTotal"
-placeholder="Total marks"
-/>
-
-<button class="action" onclick="marksPercentage()">
-Calculate
-</button>
-
-<div id="marksResult" class="result"></div>
-
+<h2>🎓 CGPA → Percentage</h2>
+<input type="number" id="useCGPA" step="0.01" placeholder="CGPA">
+<button class="primary" onclick="useCGPAPercentage()">Convert</button>
+<div class="result" id="useCGPAResult"></div>
 </div>
-
 
 <div class="tool">
-
-<h3>🎓 CGPA → Percentage</h3>
-
-<input
-type="number"
-id="cgpaValue"
-step="0.01"
-placeholder="Enter CGPA"
-/>
-
-<button class="action" onclick="cgpaPercentage()">
-Calculate
-</button>
-
-<div id="cgpaResult" class="result"></div>
-
+<h2>⏰ 45-Minute Study Timer</h2>
+<div class="result" id="useStudyTimer">45:00</div>
+<button class="primary" onclick="startUseStudyTimer()">Start</button>
+<button class="secondary" onclick="pauseUseStudyTimer()">Pause</button>
+<button class="secondary" onclick="resetUseStudyTimer()">Reset</button>
 </div>
-
 
 <div class="tool">
-
-<h3>📚 45-Minute Study Timer</h3>
-
-<button class="action" onclick="startStudyTimer()">
-Start 45 Minutes
-</button>
-
-<div id="studyTimerDisplay" class="result">
-45:00
+<h2>💸 Discount Calculator</h2>
+<input type="number" id="usePrice" placeholder="Original Price">
+<input type="number" id="useDiscount" placeholder="Discount %">
+<button class="primary" onclick="useDiscountCalc()">Calculate</button>
+<div class="result" id="useDiscountResult"></div>
 </div>
-
 </div>
-
-
-<div class="tool">
-
-<h3>🏷️ Discount Calculator</h3>
-
-<input
-type="number"
-id="originalPrice"
-placeholder="Original price"
-/>
-
-<input
-type="number"
-id="discountPercent"
-placeholder="Discount %"
-/>
-
-<button class="action" onclick="discountCalculate()">
-Calculate
-</button>
-
-<div id="discountResult" class="result"></div>
-
-</div>
-
-</section>
-
-
 
 <!-- MORE TOOLS -->
-
-<section id="moreTools" class="page">
-
-<button class="back" onclick="showPage('daily')">
-← Daily Tools
-</button>
-
+<div id="moreTools" class="dailySub" style="display:none">
+<button class="back" onclick="backDaily()">← Back</button>
 <h2>➕ More Tools</h2>
-
-<p class="subtitle">
-More useful tools will be added here.
-</p>
-
 
 <div class="grid">
 
-
-<div class="card">
-<h3>🔢 Number Tools</h3>
-<p>Useful number utilities.</p>
+<div class="tool">
+<h2>🔢 Number Tools</h2>
+<input type="number" id="numberInput" placeholder="Enter a number">
+<button class="primary" onclick="numberTool()">Check Number</button>
+<div class="result" id="numberResult"></div>
 </div>
 
-
-<div class="card">
-<h3>📋 Clipboard Tools</h3>
-<p>Useful clipboard utilities.</p>
+<div class="tool">
+<h2>📋 Clipboard Tools</h2>
+<textarea id="clipboardText" placeholder="Text for clipboard..."></textarea>
+<button class="primary" onclick="copyClipboard()">Copy Text</button>
+<div class="result" id="clipboardResult"></div>
 </div>
 
-
-<div class="card">
-<h3>📦 File Tools</h3>
-<p>More file utilities coming soon.</p>
+<div class="tool">
+<h2>📁 File Info</h2>
+<input type="file" id="fileInfoInput">
+<div class="result" id="fileInfoResult"></div>
 </div>
 
-
-<div class="card">
-<h3>🛠️ More Coming Soon</h3>
-<p>New useful tools will be added.</p>
+<div class="tool">
+<h2>📄 Text File Creator</h2>
+<textarea id="fileText" placeholder="Write text here..."></textarea>
+<input id="fileName" placeholder="File name e.g. notes.txt">
+<button class="primary" onclick="createTextFile()">Create File</button>
 </div>
 
+</div>
 
+<p style="margin-top:20px;color:#64748b">
+🚀 More useful tools coming soon...
+</p>
 </div>
 
 </section>
 
-
 </div>
 
-
 <footer>
-
-© 2026 SmartMitra | Free Useful Tools ❤️
-
+<p>© 2026 SmartMitra</p>
+<p>Free Tools • Study • Technology • Calculators</p>
 </footer>
-
-
 
 <script>
 
-
-/* PAGE NAVIGATION */
-
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(function(p){
-
-p.classList.remove("active");
-
-});
-
-document.getElementById(page).classList.add("active");
-
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 window.scrollTo(0,0);
-
+if(id!=="daily") backDaily();
 }
 
-
-
-/* IMAGE COMPRESSOR */
-
-function createImageBlob(image,width,height,quality){
-
-return new Promise(function(resolve){
-
-const canvas=document.createElement("canvas");
-
-canvas.width=width;
-
-canvas.height=height;
-
-const ctx=canvas.getContext("2d");
-
-ctx.drawImage(
-image,
-0,
-0,
-width,
-height
-);
-
-canvas.toBlob(
-function(blob){
-
-resolve(blob);
-
-},
-"image/jpeg",
-quality
-);
-
-});
-
+function showDaily(id){
+document.getElementById("dailyCategories").style.display="none";
+document.querySelectorAll(".dailySub").forEach(x=>x.style.display="none");
+document.getElementById(id).style.display="block";
+window.scrollTo(0,0);
 }
 
-
-async function compressImage(){
-
-const file=
-document.getElementById("imageFile").files[0];
-
-const targetKB=
-parseFloat(
-document.getElementById("targetKB").value
-);
-
-const status=
-document.getElementById("compressStatus");
-
-
-if(!file){
-
-status.innerText=
-"❌ Please choose an image.";
-
-return;
-
+function backDaily(){
+document.getElementById("dailyCategories").style.display="grid";
+document.querySelectorAll(".dailySub").forEach(x=>x.style.display="none");
 }
 
-
-if(!targetKB || targetKB<=0){
-
-status.innerText=
-"❌ Please enter a valid KB size.";
-
-return;
-
+/* WORD COUNT */
+function countWords(){
+let t=document.getElementById("wordText").value;
+let words=t.trim()?t.trim().split(/\s+/).length:0;
+document.getElementById("wordResult").innerText=
+"Words: "+words+" | Characters: "+t.length;
 }
-
-
-status.innerText=
-"⏳ Compressing image...";
-
-
-const targetBytes=
-targetKB*1024;
-
-
-const image=
-new Image();
-
-
-image.onload=async function(){
-
-
-let width=image.width;
-
-let height=image.height;
-
-let quality=0.85;
-
-let bestBlob=null;
-
-
-/*
-Try compression several times.
-*/
-
-for(let attempt=0;attempt<15;attempt++){
-
-
-let blob=
-await createImageBlob(
-image,
-width,
-height,
-quality
-);
-
-
-bestBlob=blob;
-
-
-if(blob.size<=targetBytes){
-
-break;
-
-}
-
-
-/*
-Reduce quality first.
-*/
-
-if(quality>0.25){
-
-quality-=0.08;
-
-}else{
-
-/*
-Then reduce dimensions.
-*/
-
-width=
-Math.max(
-100,
-Math.floor(width*0.85)
-);
-
-height=
-Math.max(
-100,
-Math.floor(height*0.85)
-);
-
-quality=0.75;
-
-}
-
-}
-
-
-/*
-Final quality search if possible.
-*/
-
-if(bestBlob.size>targetBytes){
-
-let low=0.05;
-
-let high=quality;
-
-for(let i=0;i<8;i++){
-
-let mid=(low+high)/2;
-
-let testBlob=
-await createImageBlob(
-image,
-width,
-height,
-mid
-);
-
-if(testBlob.size>targetBytes){
-
-high=mid;
-
-}else{
-
-bestBlob=testBlob;
-
-low=mid;
-
-}
-
-}
-
-}
-
-
-const resultKB=
-(bestBlob.size/1024).toFixed(2);
-
-
-const downloadURL=
-URL.createObjectURL(bestBlob);
-
-
-status.innerHTML=
-"✅ Compression complete!<br><br>"+
-"🎯 Target: "+targetKB+" KB<br>"+
-"📦 Result: "+resultKB+" KB<br><br>"+
-'<a href="'+downloadURL+'" download="smartmitra-compressed.jpg">'+
-"⬇️ Download Compressed Image"+
-"</a>";
-
-
-};
-
-
-image.onerror=function(){
-
-status.innerText=
-"❌ Could not read this image.";
-
-};
-
-
-image.src=
-URL.createObjectURL(file);
-
-}
-
-
-
-/* PERCENTAGE */
-
-function calculatePercentage(){
-
-const obtained=
-parseFloat(
-document.getElementById("calcObtained").value
-);
-
-const total=
-parseFloat(
-document.getElementById("calcTotal").value
-);
-
-
-if(isNaN(obtained)||isNaN(total)||total<=0){
-
-document.getElementById("percentageResult").innerText=
-"Enter valid values.";
-
-return;
-
-}
-
-
-document.getElementById("percentageResult").innerText=
-"Percentage: "+
-((obtained/total)*100).toFixed(2)+
-"%";
-
-}
-
-
-
-/* AGE */
-
-function calculateAge(){
-
-const value=
-document.getElementById("birthDate").value;
-
-if(!value){
-
-document.getElementById("ageResult").innerText=
-"Select your date of birth.";
-
-return;
-
-}
-
-
-const birth=
-new Date(value);
-
-const today=
-new Date();
-
-
-let age=
-today.getFullYear()-
-birth.getFullYear();
-
-
-const month=
-today.getMonth()-
-birth.getMonth();
-
-
-if(
-month<0 ||
-(month===0 &&
-today.getDate()<birth.getDate())
-){
-
-age--;
-
-}
-
-
-document.getElementById("ageResult").innerText=
-"Age: "+age+" years";
-
-}
-
-
-
-/* LENGTH CONVERTER */
-
-function convertLength(){
-
-const value=
-parseFloat(
-document.getElementById("lengthValue").value
-);
-
-if(isNaN(value)){
-
-document.getElementById("lengthResult").innerText=
-"Enter a value.";
-
-return;
-
-}
-
-
-const from=
-document.getElementById("lengthFrom").value;
-
-const to=
-document.getElementById("lengthTo").value;
-
-
-const units={
-
-m:1,
-
-km:1000,
-
-cm:0.01,
-
-mm:0.001,
-
-ft:0.3048,
-
-in:0.0254
-
-};
-
-
-const meters=
-value*units[from];
-
-
-const result=
-meters/units[to];
-
-
-document.getElementById("lengthResult").innerText=
-"Result: "+
-result.toFixed(6)+
-" "+to;
-
-}
-
-
-
-/* TEXT COUNTER */
-
-function countText(){
-
-const text=
-document.getElementById("counterText").value;
-
-
-const words=
-text.trim()===""
-?
-0
-:
-text.trim().split(/\s+/).length;
-
-
-document.getElementById("counterResult").innerText=
-"Words: "+
-words+
-" | Characters: "+
-text.length;
-
-}
-
-
-
-/* CASE */
-
-function makeUpper(){
-
-const box=
-document.getElementById("caseText");
-
-box.value=
-box.value.toUpperCase();
-
-}
-
-
-function makeLower(){
-
-const box=
-document.getElementById("caseText");
-
-box.value=
-box.value.toLowerCase();
-
-}
-
-
-function makeTitle(){
-
-const box=
-document.getElementById("caseText");
-
-box.value=
-box.value.toLowerCase()
-.replace(/\b\w/g,function(c){
-return c.toUpperCase();
-});
-
-}
-
-
-
-/* REMOVE SPACES */
-
-function removeSpaces(){
-
-const text=
-document.getElementById("spaceText").value;
-
-
-document.getElementById("spaceResult").innerText=
-text.replace(/\s+/g," ").trim();
-
-}
-
-
-
-/* FIND REPLACE */
-
-function findReplace(){
-
-const text=
-document.getElementById("findText").value;
-
-const find=
-document.getElementById("findWord").value;
-
-const replace=
-document.getElementById("replaceWord").value;
-
-
-if(!find){
-
-document.getElementById("replaceResult").innerText=
-"Enter the word to find.";
-
-return;
-
-}
-
-
-const result=
-text.split(find).join(replace);
-
-
-document.getElementById("replaceResult").innerText=
-result;
-
-}
-
-
-
-/* STOPWATCH */
-
-let stopwatchSeconds=0;
-
-let stopwatchInterval=null;
-
-
-function updateStopwatch(){
-
-stopwatchSeconds++;
-
-
-const h=
-Math.floor(stopwatchSeconds/3600);
-
-const m=
-Math.floor(
-(stopwatchSeconds%3600)/60
-);
-
-const s=
-stopwatchSeconds%60;
-
-
-document.getElementById("stopwatchDisplay").innerText=
-String(h).padStart(2,"0")+
-":"+
-String(m).padStart(2,"0")+
-":"+
-String(s).padStart(2,"0");
-
-}
-
-
-function startStopwatch(){
-
-if(!stopwatchInterval){
-
-stopwatchInterval=
-setInterval(updateStopwatch,1000);
-
-}
-
-}
-
-
-function stopStopwatch(){
-
-clearInterval(stopwatchInterval);
-
-stopwatchInterval=null;
-
-}
-
-
-function resetStopwatch(){
-
-stopStopwatch();
-
-stopwatchSeconds=0;
-
-document.getElementById("stopwatchDisplay").innerText=
-"00:00:00";
-
-}
-
-
-
-/* COUNTDOWN */
-
-let countdownInterval=null;
-
-
-function startCountdown(){
-
-clearInterval(countdownInterval);
-
-
-let seconds=
-parseInt(
-document.getElementById("countdownSeconds").value
-);
-
-
-if(isNaN(seconds)||seconds<=0){
-
-alert("Enter valid seconds.");
-
-return;
-
-}
-
-
-document.getElementById("countdownDisplay").innerText=
-seconds;
-
-
-countdownInterval=
-setInterval(function(){
-
-seconds--;
-
-
-document.getElementById("countdownDisplay").innerText=
-seconds;
-
-
-if(seconds<=0){
-
-clearInterval(countdownInterval);
-
-document.getElementById("countdownDisplay").innerText=
-"Time Up! 🎉";
-
-}
-
-},1000);
-
-}
-
-
-
-/* DATE DIFFERENCE */
-
-function dateDifference(){
-
-const d1=
-new Date(
-document.getElementById("dateOne").value
-);
-
-const d2=
-new Date(
-document.getElementById("dateTwo").value
-);
-
-
-if(isNaN(d1)||isNaN(d2)){
-
-document.getElementById("dateDifferenceResult").innerText=
-"Select both dates.";
-
-return;
-
-}
-
-
-const difference=
-Math.abs(d2-d1);
-
-
-const days=
-Math.floor(
-difference/(1000*60*60*24)
-);
-
-
-document.getElementById("dateDifferenceResult").innerText=
-"Difference: "+
-days+
-" days";
-
-}
-
-
-
-/* QR */
-
-function generateQR(){
-
-const text=
-document.getElementById("qrText").value;
-
-
-if(!text){
-
-alert("Enter text or URL.");
-
-return;
-
-}
-
-
-document.getElementById("qrResult").innerHTML=
-'<img class="preview" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+
-encodeURIComponent(text)+
-'">';
-
-}
-
-
-
-/* PASSWORD */
-
-function generatePassword(){
-
-const chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-
-let password="";
-
-
-for(let i=0;i<16;i++){
-
-password+=
-chars[
-Math.floor(
-Math.random()*chars.length
-)
-];
-
-}
-
-
-document.getElementById("passwordResult").innerText=
-password;
-
-}
-
-
-
-/* URL */
-
-function encodeURL(){
-
-const box=
-document.getElementById("urlText");
-
-box.value=
-encodeURIComponent(box.value);
-
-}
-
-
-function decodeURL(){
-
-const box=
-document.getElementById("urlText");
-
-
-try{
-
-box.value=
-decodeURIComponent(box.value);
-
-}catch(error){
-
-alert("Invalid encoded text.");
-
-}
-
-}
-
-
 
 /* MARKS */
-
 function marksPercentage(){
-
-const obtained=
-parseFloat(
-document.getElementById("marksObtained").value
-);
-
-const total=
-parseFloat(
-document.getElementById("marksTotal").value
-);
-
-
-if(isNaN(obtained)||isNaN(total)||total<=0){
-
+let a=parseFloat(document.getElementById("marksObtained").value);
+let b=parseFloat(document.getElementById("marksTotal").value);
+if(!b){document.getElementById("marksResult").innerText="Enter valid marks.";return}
 document.getElementById("marksResult").innerText=
-"Enter valid marks.";
-
-return;
-
+"Percentage: "+((a/b)*100).toFixed(2)+"%";
 }
 
-
-document.getElementById("marksResult").innerText=
-"Percentage: "+
-((obtained/total)*100).toFixed(2)+
-"%";
-
+function useMarksPercentage(){
+let a=parseFloat(document.getElementById("useMarks").value);
+let b=parseFloat(document.getElementById("useTotal").value);
+if(!b)return;
+document.getElementById("useMarksResult").innerText=
+"Percentage: "+((a/b)*100).toFixed(2)+"%";
 }
-
-
 
 /* CGPA */
-
 function cgpaPercentage(){
-
-const cgpa=
-parseFloat(
-document.getElementById("cgpaValue").value
-);
-
-
-if(isNaN(cgpa)){
-
+let c=parseFloat(document.getElementById("cgpa").value);
+if(isNaN(c))return;
 document.getElementById("cgpaResult").innerText=
-"Enter CGPA.";
-
-return;
-
+"Approx. Percentage: "+(c*9.5).toFixed(2)+"%";
 }
 
-
-document.getElementById("cgpaResult").innerText=
-"Percentage: "+
-(cgpa*9.5).toFixed(2)+
-"%";
-
+function useCGPAPercentage(){
+let c=parseFloat(document.getElementById("useCGPA").value);
+if(isNaN(c))return;
+document.getElementById("useCGPAResult").innerText=
+"Approx. Percentage: "+(c*9.5).toFixed(2)+"%";
 }
 
-
-
-/* STUDY TIMER */
-
-let studyInterval=null;
-
-
-function startStudyTimer(){
-
-clearInterval(studyInterval);
-
-
-let seconds=45*60;
-
-
-document.getElementById("studyTimerDisplay").innerText=
-"45:00";
-
-
-studyInterval=
-setInterval(function(){
-
-
-const minutes=
-Math.floor(seconds/60);
-
-
-const remaining=
-seconds%60;
-
-
-document.getElementById("studyTimerDisplay").innerText=
-String(minutes).padStart(2,"0")+
-":"+
-String(remaining).padStart(2,"0");
-
-
-seconds--;
-
-
-if(seconds<0){
-
-clearInterval(studyInterval);
-
-document.getElementById("studyTimerDisplay").innerText=
-"Time Up! 🎉";
-
+/* PERCENTAGE */
+function percentageCalc(){
+let a=parseFloat(document.getElementById("percentValue").value);
+let b=parseFloat(document.getElementById("percentTotal").value);
+if(!b)return;
+document.getElementById("percentResult").innerText=
+"Percentage: "+((a/b)*100).toFixed(2)+"%";
 }
 
-},1000);
-
+/* AGE */
+function calculateAge(date){
+let dob=new Date(date);
+let today=new Date();
+if(isNaN(dob.getTime()))return null;
+let age=today.getFullYear()-dob.getFullYear();
+let m=today.getMonth()-dob.getMonth();
+if(m<0 || (m===0 && today.getDate()<dob.getDate()))age--;
+return age;
 }
 
+function ageCalc(){
+let age=calculateAge(document.getElementById("dob").value);
+document.getElementById("ageResult").innerText=
+age===null?"Enter date of birth.":"Age: "+age+" years";
+}
 
+function ageCalc2(){
+let age=calculateAge(document.getElementById("ageDOB").value);
+document.getElementById("ageResult2").innerText=
+age===null?"Enter date of birth.":"Age: "+age+" years";
+}
+
+/* EMI */
+function emiCalc(){
+let P=parseFloat(document.getElementById("loanAmount").value);
+let annual=parseFloat(document.getElementById("interestRate").value);
+let years=parseFloat(document.getElementById("loanYears").value);
+if(!P||isNaN(annual)||!years)return;
+let r=annual/12/100;
+let n=years*12;
+let emi=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+document.getElementById("emiResult").innerText=
+"Monthly EMI: ₹"+emi.toFixed(2);
+}
+
+/* GST */
+function gstCalc(){
+let a=parseFloat(document.getElementById("gstAmount").value);
+let r=parseFloat(document.getElementById("gstRate").value);
+if(isNaN(a)||isNaN(r))return;
+let gst=a*r/100;
+document.getElementById("gstResult").innerText=
+"GST: ₹"+gst.toFixed(2)+" | Total: ₹"+(a+gst).toFixed(2);
+}
+
+/* BMI */
+function bmiCalc(){
+let w=parseFloat(document.getElementById("bmiWeight").value);
+let h=parseFloat(document.getElementById("bmiHeight").value)/100;
+if(!w||!h)return;
+let bmi=w/(h*h);
+document.getElementById("bmiResult").innerText=
+"BMI: "+bmi.toFixed(2);
+}
 
 /* DISCOUNT */
-
-function discountCalculate(){
-
-const price=
-parseFloat(
-document.getElementById("originalPrice").value
-);
-
-const discount=
-parseFloat(
-document.getElementById("discountPercent").value
-);
-
-
-if(isNaN(price)||isNaN(discount)){
-
+function discountCalc(){
+let p=parseFloat(document.getElementById("discountPrice").value);
+let d=parseFloat(document.getElementById("discountRate").value);
+if(isNaN(p)||isNaN(d))return;
+let saved=p*d/100;
 document.getElementById("discountResult").innerText=
-"Enter valid values.";
+"Discount: ₹"+saved.toFixed(2)+" | Final Price: ₹"+(p-saved).toFixed(2);
+}
 
+function useDiscountCalc(){
+let p=parseFloat(document.getElementById("usePrice").value);
+let d=parseFloat(document.getElementById("useDiscount").value);
+if(isNaN(p)||isNaN(d))return;
+let saved=p*d/100;
+document.getElementById("useDiscountResult").innerText=
+"Discount: ₹"+saved.toFixed(2)+" | Final Price: ₹"+(p-saved).toFixed(2);
+}
+
+/* URL */
+function encodeURL(){
+try{
+document.getElementById("urlResult").innerText=
+encodeURIComponent(document.getElementById("urlText").value);
+}catch(e){}
+}
+function decodeURL(){
+try{
+document.getElementById("urlResult").innerText=
+decodeURIComponent(document.getElementById("urlText").value);
+}catch(e){
+document.getElementById("urlResult").innerText="Invalid encoded URL";
+}
+}
+
+function dailyEncodeURL(){
+try{
+document.getElementById("dailyURLResult").innerText=
+encodeURIComponent(document.getElementById("dailyURLText").value);
+}catch(e){}
+}
+function dailyDecodeURL(){
+try{
+document.getElementById("dailyURLResult").innerText=
+decodeURIComponent(document.getElementById("dailyURLText").value);
+}catch(e){
+document.getElementById("dailyURLResult").innerText="Invalid encoded URL";
+}
+}
+
+/* PASSWORD */
+function randomPassword(len){
+let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+let out="";
+for(let i=0;i<len;i++)out+=chars[Math.floor(Math.random()*chars.length)];
+return out;
+}
+function generatePassword(){
+let len=parseInt(document.getElementById("passLength").value)||12;
+document.getElementById("passwordResult").innerText=randomPassword(len);
+}
+function generateDailyPassword(){
+let len=parseInt(document.getElementById("dailyPassLength").value)||16;
+document.getElementById("dailyPasswordResult").innerText=randomPassword(len);
+}
+
+/* QR */
+function generateQR(){
+let text=document.getElementById("qrText").value;
+if(!text)return;
+document.getElementById("qrResult").innerHTML=
+'<img style="max-width:250px" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(text)+'">';
+}
+function generateDailyQR(){
+let text=document.getElementById("dailyQRText").value;
+if(!text)return;
+document.getElementById("dailyQRResult").innerHTML=
+'<img style="max-width:250px" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(text)+'">';
+}
+
+/* STUDY TIMER */
+let studySeconds=2700;
+let studyInterval=null;
+
+function updateStudy(){
+let m=Math.floor(studySeconds/60);
+let s=studySeconds%60;
+document.getElementById("studyTimer").innerText=
+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+
+function startStudyTimer(){
+if(studyInterval)return;
+studyInterval=setInterval(()=>{
+if(studySeconds>0){
+studySeconds--;
+updateStudy();
+}else{
+clearInterval(studyInterval);
+studyInterval=null;
+alert("45-minute study session complete!");
+}
+},1000);
+}
+function pauseStudyTimer(){
+clearInterval(studyInterval);
+studyInterval=null;
+}
+function resetStudyTimer(){
+pauseStudyTimer();
+studySeconds=2700;
+updateStudy();
+}
+
+/* SECOND STUDY TIMER */
+let useStudySeconds=2700;
+let useStudyInterval=null;
+
+function updateUseStudy(){
+let m=Math.floor(useStudySeconds/60);
+let s=useStudySeconds%60;
+document.getElementById("useStudyTimer").innerText=
+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function startUseStudyTimer(){
+if(useStudyInterval)return;
+useStudyInterval=setInterval(()=>{
+if(useStudySeconds>0){
+useStudySeconds--;
+updateUseStudy();
+}else{
+clearInterval(useStudyInterval);
+useStudyInterval=null;
+alert("45-minute study session complete!");
+}
+},1000);
+}
+function pauseUseStudyTimer(){
+clearInterval(useStudyInterval);
+useStudyInterval=null;
+}
+function resetUseStudyTimer(){
+pauseUseStudyTimer();
+useStudySeconds=2700;
+updateUseStudy();
+}
+
+/* STOPWATCH */
+let swSeconds=0;
+let swInterval=null;
+
+function updateStopwatch(){
+let h=Math.floor(swSeconds/3600);
+let m=Math.floor((swSeconds%3600)/60);
+let s=swSeconds%60;
+document.getElementById("stopwatch").innerText=
+String(h).padStart(2,"0")+":"+
+String(m).padStart(2,"0")+":"+
+String(s).padStart(2,"0");
+}
+function startStopwatch(){
+if(swInterval)return;
+swInterval=setInterval(()=>{
+swSeconds++;
+updateStopwatch();
+},1000);
+}
+function pauseStopwatch(){
+clearInterval(swInterval);
+swInterval=null;
+}
+function resetStopwatch(){
+pauseStopwatch();
+swSeconds=0;
+updateStopwatch();
+}
+
+/* COUNTDOWN */
+let countdownSeconds=0;
+let countdownInterval=null;
+
+function updateCountdown(){
+let m=Math.floor(countdownSeconds/60);
+let s=countdownSeconds%60;
+document.getElementById("countdownDisplay").innerText=
+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function startCountdown(){
+if(countdownInterval)return;
+if(countdownSeconds<=0){
+let mins=parseInt(document.getElementById("countdownMinutes").value)||0;
+countdownSeconds=mins*60;
+}
+if(countdownSeconds<=0)return;
+updateCountdown();
+countdownInterval=setInterval(()=>{
+if(countdownSeconds>0){
+countdownSeconds--;
+updateCountdown();
+}else{
+clearInterval(countdownInterval);
+countdownInterval=null;
+alert("Countdown complete!");
+}
+},1000);
+}
+function pauseCountdown(){
+clearInterval(countdownInterval);
+countdownInterval=null;
+}
+function resetCountdown(){
+pauseCountdown();
+countdownSeconds=0;
+updateCountdown();
+}
+
+/* DATE DIFFERENCE */
+function dateDifference(){
+let a=new Date(document.getElementById("date1").value);
+let b=new Date(document.getElementById("date2").value);
+if(isNaN(a)||isNaN(b))return;
+let diff=Math.abs(b-a);
+let days=Math.round(diff/86400000);
+document.getElementById("dateDifferenceResult").innerText=
+"Difference: "+days+" days";
+}
+
+/* LENGTH */
+const lengthMeters={
+m:1,
+km:1000,
+cm:.01,
+mm:.001,
+ft:.3048,
+in:.0254,
+mi:1609.344
+};
+
+function lengthConvert(){
+let v=parseFloat(document.getElementById("lengthValue").value);
+let from=document.getElementById("lengthFrom").value;
+let to=document.getElementById("lengthTo").value;
+if(isNaN(v))return;
+let result=v*lengthMeters[from]/lengthMeters[to];
+document.getElementById("lengthResult").innerText=
+result+" "+to;
+}
+
+/* WEIGHT */
+const weightGram={
+kg:1000,
+g:1,
+mg:.001,
+lb:453.59237,
+oz:28.349523125
+};
+
+function weightConvert(){
+let v=parseFloat(document.getElementById("weightValue").value);
+let from=document.getElementById("weightFrom").value;
+let to=document.getElementById("weightTo").value;
+if(isNaN(v))return;
+let result=v*weightGram[from]/weightGram[to];
+document.getElementById("weightResult").innerText=
+result+" "+to;
+}
+
+/* TEMPERATURE */
+function temperatureConvert(){
+let v=parseFloat(document.getElementById("tempValue").value);
+let from=document.getElementById("tempFrom").value;
+let to=document.getElementById("tempTo").value;
+if(isNaN(v))return;
+
+let c;
+if(from==="C")c=v;
+if(from==="F")c=(v-32)*5/9;
+if(from==="K")c=v-273.15;
+
+let result;
+if(to==="C")result=c;
+if(to==="F")result=c*9/5+32;
+if(to==="K")result=c+273.15;
+
+document.getElementById("tempResult").innerText=
+result.toFixed(4)+" "+to;
+}
+
+/* TIME */
+const timeSeconds={
+sec:1,
+min:60,
+hour:3600,
+day:86400
+};
+function timeConvert(){
+let v=parseFloat(document.getElementById("timeValue").value);
+let from=document.getElementById("timeFrom").value;
+let to=document.getElementById("timeTo").value;
+if(isNaN(v))return;
+let result=v*timeSeconds[from]/timeSeconds[to];
+document.getElementById("timeResult").innerText=
+result+" "+to;
+}
+
+/* DATA */
+const dataBytes={
+B:1,
+KB:1024,
+MB:1024*1024,
+GB:1024*1024*1024,
+TB:1024*1024*1024*1024
+};
+function dataConvert(){
+let v=parseFloat(document.getElementById("dataValue").value);
+let from=document.getElementById("dataFrom").value;
+let to=document.getElementById("dataTo").value;
+if(isNaN(v))return;
+let result=v*dataBytes[from]/dataBytes[to];
+document.getElementById("dataResult").innerText=
+result+" "+to;
+}
+
+/* IMAGE COMPRESSOR */
+function loadImage(file){
+return new Promise((resolve,reject)=>{
+let img=new Image();
+let url=URL.createObjectURL(file);
+img.onload=()=>{
+URL.revokeObjectURL(url);
+resolve(img);
+};
+img.onerror=reject;
+img.src=url;
+});
+}
+
+function canvasBlob(canvas,type,quality){
+return new Promise(resolve=>canvas.toBlob(resolve,type,quality));
+}
+
+async function compressImage(){
+let file=document.getElementById("compressFile").files[0];
+let target=parseFloat(document.getElementById("targetKB").value);
+let result=document.getElementById("compressResult");
+
+if(!file||!target){
+result.innerText="Please choose image and enter target KB.";
 return;
-
 }
 
+try{
+let img=await loadImage(file);
+let canvas=document.createElement("canvas");
+let ctx=canvas.getContext("2d");
 
-const saved=
-price*discount/100;
+let maxDimension=2000;
+let scale=Math.min(1,maxDimension/Math.max(img.width,img.height));
 
+canvas.width=Math.max(1,Math.round(img.width*scale));
+canvas.height=Math.max(1,Math.round(img.height*scale));
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
 
-const finalPrice=
-price-saved;
+let low=.05;
+let high=.95;
+let best=null;
 
+for(let i=0;i<12;i++){
+let q=(low+high)/2;
+let blob=await canvasBlob(canvas,"image/jpeg",q);
+if(!blob)break;
 
-document.getElementById("discountResult").innerText=
-"You save ₹"+
-saved.toFixed(2)+
-" | Final Price ₹"+
-finalPrice.toFixed(2);
-
+if(blob.size/1024>target){
+high=q;
+}else{
+best=blob;
+low=q;
+}
 }
 
-
-
-/* COMING SOON */
-
-function comingSoon(){
-
-alert(
-"This tool is coming soon in the next SmartMitra update."
-);
-
+if(!best){
+best=await canvasBlob(canvas,"image/jpeg",.05);
 }
+
+let url=URL.createObjectURL(best);
+
+result.innerHTML=
+"Compressed size: "+(best.size/1024).toFixed(1)+" KB<br><br>"+
+'<a href="'+url+'" download="smartmitra-compressed.jpg">'+
+'<button class="primary">Download Compressed Image</button></a>';
+
+}catch(e){
+result.innerText="Could not compress this image.";
+}
+}
+
+/* IMAGE RESIZER */
+async function resizeImage(){
+let file=document.getElementById("resizeFile").files[0];
+let w=parseInt(document.getElementById("resizeWidth").value);
+let h=parseInt(document.getElementById("resizeHeight").value);
+let result=document.getElementById("resizeResult");
+
+if(!file||!w||!h){
+result.innerText="Choose image and enter width & height.";
+return;
+}
+
+try{
+let img=await loadImage(file);
+let canvas=document.createElement("canvas");
+canvas.width=w;
+canvas.height=h;
+canvas.getContext("2d").drawImage(img,0,0,w,h);
+
+let blob=await canvasBlob(canvas,"image/jpeg",.92);
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+'<a href="'+url+'" download="smartmitra-resized.jpg">'+
+'<button class="primary">Download Resized Image</button></a>';
+}catch(e){
+result.innerText="Could not resize image.";
+}
+}
+
+/* IMAGE CONVERTER */
+async function convertImage(){
+let file=document.getElementById("convertImageFile").files[0];
+let type=document.getElementById("imageFormat").value;
+let result=document.getElementById("convertImageResult");
+
+if(!file){
+result.innerText="Choose an image.";
+return;
+}
+
+try{
+let img=await loadImage(file);
+let canvas=document.createElement("canvas");
+canvas.width=img.width;
+canvas.height=img.height;
+canvas.getContext("2d").drawImage(img,0,0);
+
+let blob=await canvasBlob(canvas,type,.92);
+let ext=type==="image/png"?"png":type==="image/webp"?"webp":"jpg";
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+'<a href="'+url+'" download="smartmitra-converted.'+ext+'">'+
+'<button class="primary">Download Converted Image</button></a>';
+}catch(e){
+result.innerText="Conversion failed.";
+}
+}
+
+/* IMAGE TO PDF */
+async function imageToPDF(){
+let file=document.getElementById("imagePdfFile").files[0];
+let result=document.getElementById("imagePdfResult");
+
+if(!file){
+result.innerText="Choose an image.";
+return;
+}
+
+try{
+let img=await loadImage(file);
+let canvas=document.createElement("canvas");
+canvas.width=img.width;
+canvas.height=img.height;
+canvas.getContext("2d").drawImage(img,0,0);
+
+let data=canvas.toDataURL("image/jpeg",.92);
+let {jsPDF}=window.jspdf;
+
+let orientation=img.width>img.height?"landscape":"portrait";
+let pdf=new jsPDF({
+orientation:orientation,
+unit:"px",
+format:[img.width,img.height]
+});
+
+pdf.addImage(data,"JPEG",0,0,img.width,img.height);
+
+let blob=pdf.output("blob");
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+'<a href="'+url+'" download="smartmitra-image.pdf">'+
+'<button class="primary">Download PDF</button></a>';
+}catch(e){
+result.innerText="Could not create PDF.";
+}
+}
+
+/* PDF MERGE */
+async function mergePDF(){
+let files=document.getElementById("mergePDFs").files;
+let result=document.getElementById("mergePDFResult");
+
+if(files.length<2){
+result.innerText="Choose at least 2 PDF files.";
+return;
+}
+
+try{
+let merged=await PDFLib.PDFDocument.create();
+
+for(let file of files){
+let bytes=await file.arrayBuffer();
+let pdf=await PDFLib.PDFDocument.load(bytes);
+let pages=await merged.copyPages(pdf,pdf.getPageIndices());
+pages.forEach(p=>merged.addPage(p));
+}
+
+let bytes=await merged.save();
+let blob=new Blob([bytes],{type:"application/pdf"});
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+'<a href="'+url+'" download="smartmitra-merged.pdf">'+
+'<button class="primary">Download Merged PDF</button></a>';
+}catch(e){
+result.innerText="Could not merge PDFs.";
+}
+}
+
+/* PDF SPLIT */
+async function splitPDF(){
+let file=document.getElementById("splitPDF").files[0];
+let pageNumber=parseInt(document.getElementById("splitPage").value);
+let result=document.getElementById("splitPDFResult");
+
+if(!file||!pageNumber){
+result.innerText="Choose PDF and enter page number.";
+return;
+}
+
+try{
+let bytes=await file.arrayBuffer();
+let pdf=await PDFLib.PDFDocument.load(bytes);
+
+if(pageNumber<1||pageNumber>pdf.getPageCount()){
+result.innerText="Page number is out of range.";
+return;
+}
+
+let newPdf=await PDFLib.PDFDocument.create();
+let [page]=await newPdf.copyPages(pdf,[pageNumber-1]);
+newPdf.addPage(page);
+
+let out=await newPdf.save();
+let blob=new Blob([out],{type:"application/pdf"});
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+'<a href="'+url+'" download="smartmitra-split.pdf">'+
+'<button class="primary">Download Page PDF</button></a>';
+}catch(e){
+result.innerText="Could not split PDF.";
+}
+}
+
+/* PDF OPTIMIZE */
+async function compressPDFFile(){
+let file=document.getElementById("compressPDF").files[0];
+let result=document.getElementById("compressPDFResult");
+
+if(!file){
+result.innerText="Choose a PDF.";
+return;
+}
+
+try{
+let bytes=await file.arrayBuffer();
+let pdf=await PDFLib.PDFDocument.load(bytes);
+let out=await pdf.save({useObjectStreams:true});
+let blob=new Blob([out],{type:"application/pdf"});
+let url=URL.createObjectURL(blob);
+
+result.innerHTML=
+"Original: "+(file.size/1024).toFixed(1)+" KB<br>"+
+"Output: "+(blob.size/1024).toFixed(1)+" KB<br><br>"+
+'<a href="'+url+'" download="smartmitra-optimized.pdf">'+
+'<button class="primary">Download Optimized PDF</button></a>';
+}catch(e){
+result.innerText="Could not optimize PDF.";
+}
+}
+
+/* TEXT TOOLS */
+function caseUpper(){
+document.getElementById("caseText").value=
+document.getElementById("caseText").value.toUpperCase();
+}
+function caseLower(){
+document.getElementById("caseText").value=
+document.getElementById("caseText").value.toLowerCase();
+}
+function caseTitle(){
+let t=document.getElementById("caseText").value;
+document.getElementById("caseText").value=
+t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+}
+function removeSpaces(){
+let el=document.getElementById("spaceText");
+el.value=el.value.replace(/\s+/g," ").trim();
+}
+function findReplace(){
+let el=document.getElementById("findText");
+let find=document.getElementById("findWord").value;
+let replace=document.getElementById("replaceWord").value;
+if(!find)return;
+el.value=el.value.split(find).join(replace);
+}
+
+/* NUMBER TOOLS */
+function numberTool(){
+let n=parseInt(document.getElementById("numberInput").value);
+if(isNaN(n))return;
+
+let prime=true;
+if(n<2)prime=false;
+for(let i=2;i<=Math.sqrt(n);i++){
+if(n%i===0){
+prime=false;
+break;
+}
+}
+
+document.getElementById("numberResult").innerText=
+"Even/Odd: "+(n%2===0?"Even":"Odd")+
+" | Prime: "+(prime?"Yes":"No")+
+" | Square: "+(n*n);
+}
+
+/* CLIPBOARD */
+async function copyClipboard(){
+let text=document.getElementById("clipboardText").value;
+try{
+await navigator.clipboard.writeText(text);
+document.getElementById("clipboardResult").innerText="Copied to clipboard!";
+}catch(e){
+document.getElementById("clipboardResult").innerText=
+"Clipboard permission not available.";
+}
+}
+
+/* FILE INFO */
+document.getElementById("fileInfoInput").addEventListener("change",function(){
+let f=this.files[0];
+if(!f)return;
+document.getElementById("fileInfoResult").innerText=
+"Name: "+f.name+
+"\nSize: "+(f.size/1024).toFixed(2)+" KB"+
+"\nType: "+f.type;
+});
+
+/* TEXT FILE */
+function createTextFile(){
+let text=document.getElementById("fileText").value;
+let name=document.getElementById("fileName").value||"notes.txt";
+
+if(!name.includes("."))name+=".txt";
+
+let blob=new Blob([text],{type:"text/plain"});
+let url=URL.createObjectURL(blob);
+
+let a=document.createElement("a");
+a.href=url;
+a.download=name;
+a.click();
+
+URL.revokeObjectURL(url);
+}
+
+/* INITIAL */
+updateStudy();
+updateUseStudy();
+updateStopwatch();
+updateCountdown();
 
 </script>
-
 
 </body>
 </html>
