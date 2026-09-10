@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SmartMitra - Free Online Tools</title>
 
 <style>
@@ -41,7 +40,7 @@ nav{
 nav a{
   color:white;
   text-decoration:none;
-  margin:0 10px;
+  margin:0 8px;
   font-weight:bold;
   cursor:pointer;
 }
@@ -72,14 +71,14 @@ nav a{
 }
 
 .container{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
   padding:35px 15px;
 }
 
 .title{
   text-align:center;
-  font-size:28px;
+  font-size:29px;
   margin-bottom:25px;
 }
 
@@ -107,7 +106,6 @@ nav a{
 .category h3{
   color:#2563eb;
   margin-bottom:9px;
-  font-size:21px;
 }
 
 .category p{
@@ -123,11 +121,17 @@ nav a{
 
 .card h3{
   color:#2563eb;
-  margin-bottom:15px;
+  margin-bottom:14px;
+}
+
+.card p{
+  color:#555;
+  line-height:1.5;
 }
 
 input,
-textarea{
+textarea,
+select{
   width:100%;
   padding:12px;
   margin:7px 0;
@@ -165,17 +169,18 @@ button:hover{
   border-radius:8px;
   text-align:center;
   font-weight:bold;
+  word-break:break-word;
 }
 
 .timer{
   font-size:44px;
   text-align:center;
-  margin:18px 0;
+  margin:15px 0;
   color:#7c3aed;
 }
 
 .back{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
   padding:20px 15px 0;
 }
@@ -185,12 +190,25 @@ button:hover{
   padding:10px 18px;
 }
 
+.tool-heading{
+  margin:30px 0 18px;
+  color:#333;
+  border-left:5px solid #2563eb;
+  padding-left:10px;
+}
+
 footer{
   margin-top:35px;
   padding:25px;
   background:#111827;
   color:white;
   text-align:center;
+}
+
+.small{
+  font-size:13px;
+  color:#777;
+  margin-top:8px;
 }
 
 @media(max-width:600px){
@@ -204,7 +222,8 @@ footer{
   }
 
   nav a{
-    margin:0 6px;
+    margin:0 4px;
+    font-size:14px;
   }
 }
 </style>
@@ -214,311 +233,850 @@ footer{
 
 <header>
 
-  <h1>🚀 SmartMitra</h1>
+<h1>🚀 SmartMitra</h1>
+<p>Free & Useful Online Tools</p>
 
-  <p>Free & Useful Online Tools</p>
-
-  <nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('study')">Study</a>
-    <a onclick="showPage('technology')">Technology</a>
-    <a onclick="showPage('calculators')">Calculators</a>
-    <a onclick="showPage('daily')">Daily Tools</a>
-  </nav>
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('study')">Study</a>
+<a onclick="showPage('technology')">Technology</a>
+<a onclick="showPage('calculators')">Calculators</a>
+<a onclick="showPage('daily')">Daily Tools</a>
+</nav>
 
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="home" class="page">
 
-  <div class="home">
+<div class="home">
 
-    <h2>Welcome to SmartMitra 🚀</h2>
+<h2>Welcome to SmartMitra 🚀</h2>
 
-    <p>
-      Free, simple and useful online tools for everyone.
-    </p>
+<p>
+Free, simple and useful online tools for everyone.
+</p>
 
-  </div>
+</div>
 
+<div class="container">
 
-  <div class="container">
+<h2 class="title">🔥 Popular Categories</h2>
 
-    <h2 class="title">🔥 Popular Categories</h2>
+<div class="categories">
 
-    <div class="categories">
+<div class="category" onclick="showPage('study')">
+<h3>📚 Study</h3>
+<p>Useful tools for students</p>
+</div>
 
-      <div class="category" onclick="showPage('study')">
+<div class="category" onclick="showPage('technology')">
+<h3>💻 Technology</h3>
+<p>Website development tools</p>
+</div>
 
-        <h3>📚 Study</h3>
+<div class="category" onclick="showPage('calculators')">
+<h3>🧮 Calculators</h3>
+<p>Useful online calculators</p>
+</div>
 
-        <p>Useful tools for students</p>
+<div class="category" onclick="showPage('daily')">
+<h3>🛠️ Daily Tools</h3>
+<p>Useful everyday tools</p>
+</div>
 
-      </div>
+</div>
 
-
-      <div class="category" onclick="showPage('technology')">
-
-        <h3>💻 Technology</h3>
-
-        <p>Website development tools</p>
-
-      </div>
-
-
-      <div class="category" onclick="showPage('calculators')">
-
-        <h3>🧮 Calculators</h3>
-
-        <p>Useful online calculators</p>
-
-      </div>
-
-
-      <div class="category" onclick="showPage('daily')">
-
-        <h3>🛠️ Daily Tools</h3>
-
-        <p>Useful everyday tools</p>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- STUDY -->
+<!-- ================= STUDY ================= -->
 
 <section id="study" class="page">
 
-  <div class="back">
-    <button onclick="showPage('home')">← Back to Home</button>
-  </div>
+<div class="back">
+<button onclick="showPage('home')">← Back to Home</button>
+</div>
 
-  <div class="container">
+<div class="container">
 
-    <h2 class="title">📚 Study</h2>
+<h2 class="title">📚 Study</h2>
 
-    <div class="tools">
+<div class="tools">
 
-      <div class="card">
-        <h3>📖 Study Resources</h3>
-        <p>Useful study resources and learning tools will be added here.</p>
-      </div>
+<div class="card">
+<h3>📖 Study Resources</h3>
+<p>Useful study resources will be added here.</p>
+</div>
 
-      <div class="card">
-        <h3>🎯 Exam Preparation</h3>
-        <p>Exam preparation tools will be added here.</p>
-      </div>
+<div class="card">
+<h3>🎯 Exam Preparation</h3>
+<p>Exam preparation tools will be added here.</p>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- TECHNOLOGY -->
+<!-- ================= TECHNOLOGY ================= -->
 
 <section id="technology" class="page">
 
-  <div class="back">
-    <button onclick="showPage('home')">← Back to Home</button>
-  </div>
+<div class="back">
+<button onclick="showPage('home')">← Back to Home</button>
+</div>
 
-  <div class="container">
+<div class="container">
 
-    <h2 class="title">💻 Technology</h2>
+<h2 class="title">💻 Technology</h2>
 
-    <div class="tools">
+<div class="tools">
 
-      <div class="card">
-        <h3>🌐 Website Development</h3>
-        <p>HTML, CSS and JavaScript tools will be added here.</p>
-      </div>
+<div class="card">
+<h3>🌐 Website Development</h3>
+<p>HTML, CSS and JavaScript tools will be added here.</p>
+</div>
 
-      <div class="card">
-        <h3>🧑‍💻 Developer Tools</h3>
-        <p>Useful development tools will be added here.</p>
-      </div>
+<div class="card">
+<h3>🧑‍💻 Developer Tools</h3>
+<p>Useful development tools will be added here.</p>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- CALCULATORS -->
+<!-- ================= CALCULATORS ================= -->
 
 <section id="calculators" class="page">
 
-  <div class="back">
-    <button onclick="showPage('home')">← Back to Home</button>
-  </div>
+<div class="back">
+<button onclick="showPage('home')">← Back to Home</button>
+</div>
 
-  <div class="container">
+<div class="container">
 
-    <h2 class="title">🧮 Calculators</h2>
+<h2 class="title">🧮 Calculators</h2>
 
-    <div class="tools">
+<div class="tools">
 
-      <div class="card">
-        <h3>📏 BMI Calculator</h3>
-        <p>BMI calculator will be added here.</p>
-      </div>
+<div class="card">
+<h3>📏 BMI Calculator</h3>
+<p>BMI calculator will be added here.</p>
+</div>
 
-      <div class="card">
-        <h3>🎂 Age Calculator</h3>
-        <p>Age calculator will be added here.</p>
-      </div>
+<div class="card">
+<h3>🎂 Age Calculator</h3>
+<p>Age calculator will be added here.</p>
+</div>
 
-      <div class="card">
-        <h3>💰 EMI Calculator</h3>
-        <p>EMI calculator will be added here.</p>
-      </div>
+<div class="card">
+<h3>💰 EMI Calculator</h3>
+<p>EMI calculator will be added here.</p>
+</div>
 
-      <div class="card">
-        <h3>🧾 GST Calculator</h3>
-        <p>GST calculator will be added here.</p>
-      </div>
+<div class="card">
+<h3>🧾 GST Calculator</h3>
+<p>GST calculator will be added here.</p>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- DAILY TOOLS -->
+<!-- ================= DAILY TOOLS ================= -->
 
 <section id="daily" class="page">
 
-  <div class="back">
-    <button onclick="showPage('home')">← Back to Home</button>
-  </div>
+<div class="back">
+<button onclick="showPage('home')">← Back to Home</button>
+</div>
 
-  <div class="container">
+<div class="container">
 
-    <h2 class="title">🛠️ Daily Tools</h2>
-
-    <div class="tools">
+<h2 class="title">🛠️ Daily Tools</h2>
 
 
-      <!-- MARKS -->
+<!-- TEXT TOOLS -->
 
-      <div class="card">
+<h2 class="tool-heading">📝 Text Tools</h2>
 
-        <h3>📊 Marks → Percentage</h3>
+<div class="tools">
 
-        <input
-          type="number"
-          id="marks"
-          placeholder="Obtained Marks"
-        >
+<!-- 1 Word Counter -->
+<div class="card">
 
-        <input
-          type="number"
-          id="total"
-          placeholder="Total Marks"
-        >
+<h3>📝 Word & Character Counter</h3>
 
-        <button onclick="percentage()">
-          Calculate Percentage
-        </button>
+<textarea id="textCounter"
+placeholder="Type or paste your text..."></textarea>
 
-        <div class="result" id="percentageResult">
-          Result will appear here
-        </div>
+<button onclick="countWords()">
+Count
+</button>
 
-      </div>
+<div class="result" id="wordResult">
+Words: 0 | Characters: 0
+</div>
+
+</div>
 
 
-      <!-- CGPA -->
+<!-- 2 Case Converter -->
+<div class="card">
 
-      <div class="card">
+<h3>🔠 Case Converter</h3>
 
-        <h3>🎓 CGPA → Percentage</h3>
+<textarea id="caseText"
+placeholder="Enter your text..."></textarea>
 
-        <input
-          type="number"
-          id="cgpa"
-          step="0.01"
-          placeholder="Enter CGPA (0-10)"
-        >
+<button onclick="upperCase()">UPPERCASE</button>
+<button onclick="lowerCase()">lowercase</button>
+<button onclick="titleCase()">Title Case</button>
 
-        <button onclick="cgpaConvert()">
-          Convert
-        </button>
-
-        <div class="result" id="cgpaResult">
-          Result will appear here
-        </div>
-
-      </div>
+</div>
 
 
-      <!-- WORD COUNTER -->
+<!-- 3 Remove Spaces -->
+<div class="card">
 
-      <div class="card">
+<h3>🧹 Remove Extra Spaces</h3>
 
-        <h3>📝 Word Counter</h3>
+<textarea id="spaceText"
+placeholder="Enter text..."></textarea>
 
-        <textarea
-          id="text"
-          placeholder="Type or paste your text..."
-        ></textarea>
+<button onclick="removeSpaces()">
+Clean Text
+</button>
 
-        <button onclick="countWords()">
-          Count Words
-        </button>
-
-        <div class="result" id="wordResult">
-          Words: 0 | Characters: 0
-        </div>
-
-      </div>
+</div>
 
 
-      <!-- 45 MINUTE TIMER -->
+<!-- 4 Find Replace -->
+<div class="card">
 
-      <div class="card">
+<h3>🔎 Find & Replace</h3>
 
-        <h3>⏱️ Study Timer</h3>
+<textarea id="replaceText"
+placeholder="Enter text..."></textarea>
 
-        <div class="timer" id="timer">
-          45:00
-        </div>
+<input id="findText" placeholder="Find">
 
-        <button onclick="startTimer()">
-          ▶ Start
-        </button>
+<input id="newText" placeholder="Replace with">
 
-        <button onclick="pauseTimer()">
-          ⏸ Pause
-        </button>
+<button onclick="findReplace()">
+Replace
+</button>
 
-        <button onclick="resetTimer()">
-          🔄 Reset
-        </button>
+</div>
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<!-- TIME & DATE -->
+
+<h2 class="tool-heading">⏰ Time & Date</h2>
+
+<div class="tools">
+
+<!-- 5 Stopwatch -->
+<div class="card">
+
+<h3>⏱️ Stopwatch</h3>
+
+<div class="timer" id="stopwatch">
+00:00:00
+</div>
+
+<button onclick="startStopwatch()">▶ Start</button>
+<button onclick="pauseStopwatch()">⏸ Pause</button>
+<button onclick="resetStopwatch()">🔄 Reset</button>
+
+</div>
+
+
+<!-- 6 Countdown -->
+<div class="card">
+
+<h3>⏳ Countdown Timer</h3>
+
+<input
+type="number"
+id="countMinutes"
+placeholder="Minutes"
+min="1">
+
+<div class="timer" id="countdown">
+00:00
+</div>
+
+<button onclick="startCountdown()">▶ Start</button>
+<button onclick="pauseCountdown()">⏸ Pause</button>
+<button onclick="resetCountdown()">🔄 Reset</button>
+
+</div>
+
+
+<!-- 7 Date Difference -->
+<div class="card">
+
+<h3>📅 Date Difference</h3>
+
+<input type="date" id="date1">
+<input type="date" id="date2">
+
+<button onclick="dateDifference()">
+Calculate
+</button>
+
+<div class="result" id="dateResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 8 Age -->
+<div class="card">
+
+<h3>🎂 Age Calculator</h3>
+
+<input type="date" id="birthDate">
+
+<button onclick="calculateAge()">
+Calculate Age
+</button>
+
+<div class="result" id="ageResult">
+Result will appear here
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONVERTERS -->
+
+<h2 class="tool-heading">🔄 Converters</h2>
+
+<div class="tools">
+
+<!-- 9 Length -->
+<div class="card">
+
+<h3>📏 Length Converter</h3>
+
+<input
+type="number"
+id="lengthValue"
+placeholder="Enter value">
+
+<select id="lengthFrom">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="mile">Mile</option>
+<option value="foot">Foot</option>
+</select>
+
+<select id="lengthTo">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="mile">Mile</option>
+<option value="foot">Foot</option>
+</select>
+
+<button onclick="convertLength()">
+Convert
+</button>
+
+<div class="result" id="lengthResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 10 Weight -->
+<div class="card">
+
+<h3>⚖️ Weight Converter</h3>
+
+<input
+type="number"
+id="weightValue"
+placeholder="Enter value">
+
+<select id="weightFrom">
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="lb">Pound</option>
+</select>
+
+<select id="weightTo">
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="lb">Pound</option>
+</select>
+
+<button onclick="convertWeight()">
+Convert
+</button>
+
+<div class="result" id="weightResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 11 Temperature -->
+<div class="card">
+
+<h3>🌡️ Temperature Converter</h3>
+
+<input
+type="number"
+id="tempValue"
+placeholder="Enter temperature">
+
+<select id="tempFrom">
+<option value="c">Celsius</option>
+<option value="f">Fahrenheit</option>
+<option value="k">Kelvin</option>
+</select>
+
+<select id="tempTo">
+<option value="c">Celsius</option>
+<option value="f">Fahrenheit</option>
+<option value="k">Kelvin</option>
+</select>
+
+<button onclick="convertTemp()">
+Convert
+</button>
+
+<div class="result" id="tempResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 12 Time Converter -->
+<div class="card">
+
+<h3>🕐 Time Converter</h3>
+
+<input
+type="number"
+id="timeValue"
+placeholder="Enter value">
+
+<select id="timeFrom">
+<option value="seconds">Seconds</option>
+<option value="minutes">Minutes</option>
+<option value="hours">Hours</option>
+<option value="days">Days</option>
+</select>
+
+<select id="timeTo">
+<option value="seconds">Seconds</option>
+<option value="minutes">Minutes</option>
+<option value="hours">Hours</option>
+<option value="days">Days</option>
+</select>
+
+<button onclick="convertTime()">
+Convert
+</button>
+
+<div class="result" id="timeResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 13 Data -->
+<div class="card">
+
+<h3>💾 Data Storage Converter</h3>
+
+<input
+type="number"
+id="dataValue"
+placeholder="Enter value">
+
+<select id="dataFrom">
+<option value="byte">Byte</option>
+<option value="kb">KB</option>
+<option value="mb">MB</option>
+<option value="gb">GB</option>
+</select>
+
+<select id="dataTo">
+<option value="byte">Byte</option>
+<option value="kb">KB</option>
+<option value="mb">MB</option>
+<option value="gb">GB</option>
+</select>
+
+<button onclick="convertData()">
+Convert
+</button>
+
+<div class="result" id="dataResult">
+Result will appear here
+</div>
+
+</div>
+
+</div>
+
+
+<!-- INTERNET -->
+
+<h2 class="tool-heading">🌐 Internet Tools</h2>
+
+<div class="tools">
+
+<!-- 14 QR -->
+<div class="card">
+
+<h3>🔳 QR Code Generator</h3>
+
+<input
+id="qrText"
+placeholder="Enter text or URL">
+
+<button onclick="generateQR()">
+Generate QR
+</button>
+
+<div id="qrResult" class="result">
+QR code will appear here
+</div>
+
+</div>
+
+
+<!-- 15 Password -->
+<div class="card">
+
+<h3>🔐 Password Generator</h3>
+
+<input
+type="number"
+id="passLength"
+value="12"
+min="4"
+max="50"
+placeholder="Password length">
+
+<button onclick="generatePassword()">
+Generate Password
+</button>
+
+<div class="result" id="passwordResult">
+Password will appear here
+</div>
+
+</div>
+
+
+<!-- 16 URL -->
+<div class="card">
+
+<h3>🔗 URL Encoder / Decoder</h3>
+
+<textarea
+id="urlText"
+placeholder="Enter URL or text..."></textarea>
+
+<button onclick="encodeURL()">
+Encode
+</button>
+
+<button onclick="decodeURL()">
+Decode
+</button>
+
+<div class="result" id="urlResult">
+Result will appear here
+</div>
+
+</div>
+
+</div>
+
+
+<!-- IMAGE -->
+
+<h2 class="tool-heading">🖼️ Image Tools</h2>
+
+<div class="tools">
+
+<!-- 17 Image Compressor -->
+<div class="card">
+
+<h3>🗜️ Image Compressor</h3>
+
+<input type="file" id="compressImage" accept="image/*">
+
+<button onclick="compressImageFile()">
+Compress Image
+</button>
+
+<div class="result" id="compressResult">
+Select an image
+</div>
+
+</div>
+
+
+<!-- 18 Image Resizer -->
+<div class="card">
+
+<h3>📐 Image Resizer</h3>
+
+<input type="file" id="resizeImage" accept="image/*">
+
+<input
+type="number"
+id="resizeWidth"
+placeholder="Width in pixels">
+
+<button onclick="resizeImageFile()">
+Resize Image
+</button>
+
+<div class="result" id="resizeResult">
+Select an image
+</div>
+
+</div>
+
+
+<!-- 19 JPG PNG -->
+<div class="card">
+
+<h3>🖼️ JPG ↔ PNG Converter</h3>
+
+<input type="file" id="convertImage" accept="image/*">
+
+<button onclick="convertImageFile()">
+Convert to PNG
+</button>
+
+<div class="result" id="convertImageResult">
+Select an image
+</div>
+
+</div>
+
+
+<!-- 20 Image PDF -->
+<div class="card">
+
+<h3>📄 Image → PDF</h3>
+
+<input type="file" id="pdfImage" accept="image/*">
+
+<button onclick="imageToPDF()">
+Prepare Image
+</button>
+
+<div class="result" id="pdfImageResult">
+Select an image
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PDF -->
+
+<h2 class="tool-heading">📄 PDF Tools</h2>
+
+<div class="tools">
+
+<div class="card">
+<h3>📑 PDF Merge</h3>
+<p>Select multiple PDF files to combine them.</p>
+<input type="file" accept=".pdf" multiple>
+<button onclick="pdfMessage()">Merge PDFs</button>
+</div>
+
+<div class="card">
+<h3>✂️ PDF Split</h3>
+<p>Select a PDF to prepare it for splitting.</p>
+<input type="file" accept=".pdf">
+<button onclick="pdfMessage()">Split PDF</button>
+</div>
+
+<div class="card">
+<h3>🗜️ PDF Compress</h3>
+<p>Select a PDF to prepare it for compression.</p>
+<input type="file" accept=".pdf">
+<button onclick="pdfMessage()">Compress PDF</button>
+</div>
+
+</div>
+
+
+<!-- EVERYDAY CALCULATORS -->
+
+<h2 class="tool-heading">💰 Everyday Calculators</h2>
+
+<div class="tools">
+
+<!-- 21 Discount -->
+<div class="card">
+
+<h3>🏷️ Discount Calculator</h3>
+
+<input
+type="number"
+id="price"
+placeholder="Original Price">
+
+<input
+type="number"
+id="discount"
+placeholder="Discount %">
+
+<button onclick="discountCalc()">
+Calculate
+</button>
+
+<div class="result" id="discountResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 22 Tip -->
+<div class="card">
+
+<h3>💵 Tip & Bill Split</h3>
+
+<input
+type="number"
+id="bill"
+placeholder="Bill Amount">
+
+<input
+type="number"
+id="tip"
+placeholder="Tip %">
+
+<input
+type="number"
+id="people"
+placeholder="Number of People">
+
+<button onclick="tipCalc()">
+Calculate
+</button>
+
+<div class="result" id="tipResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 23 Marks -->
+<div class="card">
+
+<h3>📊 Marks → Percentage</h3>
+
+<input
+type="number"
+id="marks"
+placeholder="Obtained Marks">
+
+<input
+type="number"
+id="total"
+placeholder="Total Marks">
+
+<button onclick="percentage()">
+Calculate
+</button>
+
+<div class="result" id="percentageResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 24 CGPA -->
+<div class="card">
+
+<h3>🎓 CGPA → Percentage</h3>
+
+<input
+type="number"
+id="cgpa"
+step="0.01"
+placeholder="CGPA (0-10)">
+
+<button onclick="cgpaConvert()">
+Convert
+</button>
+
+<div class="result" id="cgpaResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 25 Study Timer -->
+<div class="card">
+
+<h3>⏱️ 45-Minute Study Timer</h3>
+
+<div class="timer" id="studyTimer">
+45:00
+</div>
+
+<button onclick="startStudyTimer()">▶ Start</button>
+<button onclick="pauseStudyTimer()">⏸ Pause</button>
+<button onclick="resetStudyTimer()">🔄 Reset</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <footer>
 
-  <p>© 2026 SmartMitra | Free Useful Tools ❤️</p>
+<p>© 2026 SmartMitra | Free Useful Tools ❤️</p>
 
 </footer>
 
@@ -529,72 +1087,13 @@ footer{
 
 function showPage(page){
 
-  let pages=document.querySelectorAll(".page");
+document.querySelectorAll(".page").forEach(function(item){
+item.style.display="none";
+});
 
-  pages.forEach(function(item){
+document.getElementById(page).style.display="block";
 
-    item.style.display="none";
-
-  });
-
-  document.getElementById(page).style.display="block";
-
-  window.scrollTo(0,0);
-}
-
-
-/* MARKS → PERCENTAGE */
-
-function percentage(){
-
-  let marks=Number(
-    document.getElementById("marks").value
-  );
-
-  let total=Number(
-    document.getElementById("total").value
-  );
-
-  if(
-    marks<0 ||
-    total<=0 ||
-    marks>total
-  ){
-
-    document.getElementById("percentageResult").innerText=
-    "⚠️ Please enter valid marks";
-
-    return;
-  }
-
-  let result=(marks/total)*100;
-
-  document.getElementById("percentageResult").innerText=
-  "Percentage: "+result.toFixed(2)+"%";
-}
-
-
-/* CGPA */
-
-function cgpaConvert(){
-
-  let cgpa=Number(
-    document.getElementById("cgpa").value
-  );
-
-  if(cgpa<0 || cgpa>10){
-
-    document.getElementById("cgpaResult").innerText=
-    "⚠️ Enter CGPA between 0 and 10";
-
-    return;
-  }
-
-  let result=cgpa*9.5;
-
-  document.getElementById("cgpaResult").innerText=
-  "Approx. Percentage: "+
-  result.toFixed(2)+"%";
+window.scrollTo(0,0);
 }
 
 
@@ -602,88 +1101,781 @@ function cgpaConvert(){
 
 function countWords(){
 
-  let text=document
-    .getElementById("text")
-    .value
-    .trim();
+let text=document.getElementById("textCounter").value.trim();
 
-  let words=
-    text==="" ? 0 : text.split(/\s+/).length;
+let words=text===""?0:text.split(/\s+/).length;
 
-  let characters=text.length;
+let characters=text.length;
 
-  document.getElementById("wordResult").innerText=
-  "Words: "+words+
-  " | Characters: "+characters;
+document.getElementById("wordResult").innerText=
+"Words: "+words+" | Characters: "+characters;
 }
 
 
-/* 45 MINUTE TIMER */
+/* CASE */
 
-let time=45*60;
+function upperCase(){
+document.getElementById("caseText").value=
+document.getElementById("caseText").value.toUpperCase();
+}
 
-let timerInterval=null;
+function lowerCase(){
+document.getElementById("caseText").value=
+document.getElementById("caseText").value.toLowerCase();
+}
 
+function titleCase(){
 
-function updateTimer(){
+let text=document.getElementById("caseText").value;
 
-  let minutes=Math.floor(time/60);
-
-  let seconds=time%60;
-
-  document.getElementById("timer").innerText=
-  String(minutes).padStart(2,"0")+
-  ":"+
-  String(seconds).padStart(2,"0");
+document.getElementById("caseText").value=
+text.toLowerCase().replace(/\b\w/g,
+function(c){return c.toUpperCase();});
 }
 
 
-function startTimer(){
+/* REMOVE SPACES */
 
-  if(timerInterval!==null){
-    return;
-  }
+function removeSpaces(){
 
-  timerInterval=setInterval(function(){
+let text=document.getElementById("spaceText").value;
 
-    if(time>0){
-
-      time--;
-
-      updateTimer();
-
-    }
-    else{
-
-      clearInterval(timerInterval);
-
-      timerInterval=null;
-
-      alert("🎉 45 minute session complete!");
-
-    }
-
-  },1000);
+document.getElementById("spaceText").value=
+text.replace(/\s+/g," ").trim();
 }
 
 
-function pauseTimer(){
+/* FIND REPLACE */
 
-  clearInterval(timerInterval);
+function findReplace(){
 
-  timerInterval=null;
+let text=document.getElementById("replaceText").value;
+
+let find=document.getElementById("findText").value;
+
+let replace=document.getElementById("newText").value;
+
+if(find==="") return;
+
+document.getElementById("replaceText").value=
+text.split(find).join(replace);
 }
 
 
-function resetTimer(){
+/* STOPWATCH */
 
-  clearInterval(timerInterval);
+let stopwatchSeconds=0;
+let stopwatchInterval=null;
 
-  timerInterval=null;
+function updateStopwatch(){
 
-  time=45*60;
+let h=Math.floor(stopwatchSeconds/3600);
 
-  updateTimer();
+let m=Math.floor((stopwatchSeconds%3600)/60);
+
+let s=stopwatchSeconds%60;
+
+document.getElementById("stopwatch").innerText=
+String(h).padStart(2,"0")+":"+
+String(m).padStart(2,"0")+":"+
+String(s).padStart(2,"0");
+}
+
+function startStopwatch(){
+
+if(stopwatchInterval!==null)return;
+
+stopwatchInterval=setInterval(function(){
+
+stopwatchSeconds++;
+
+updateStopwatch();
+
+},1000);
+}
+
+function pauseStopwatch(){
+
+clearInterval(stopwatchInterval);
+
+stopwatchInterval=null;
+}
+
+function resetStopwatch(){
+
+pauseStopwatch();
+
+stopwatchSeconds=0;
+
+updateStopwatch();
+}
+
+
+/* COUNTDOWN */
+
+let countdownSeconds=0;
+let countdownInterval=null;
+
+function startCountdown(){
+
+if(countdownInterval!==null)return;
+
+if(countdownSeconds===0){
+
+let minutes=Number(
+document.getElementById("countMinutes").value
+);
+
+if(minutes<=0){
+alert("Enter minutes first");
+return;
+}
+
+countdownSeconds=minutes*60;
+}
+
+countdownInterval=setInterval(function(){
+
+if(countdownSeconds>0){
+
+countdownSeconds--;
+
+updateCountdown();
+
+}else{
+
+clearInterval(countdownInterval);
+
+countdownInterval=null;
+
+alert("⏰ Time is up!");
+
+}
+
+},1000);
+}
+
+function updateCountdown(){
+
+let m=Math.floor(countdownSeconds/60);
+
+let s=countdownSeconds%60;
+
+document.getElementById("countdown").innerText=
+String(m).padStart(2,"0")+":"+
+String(s).padStart(2,"0");
+}
+
+function pauseCountdown(){
+
+clearInterval(countdownInterval);
+
+countdownInterval=null;
+}
+
+function resetCountdown(){
+
+pauseCountdown();
+
+countdownSeconds=0;
+
+document.getElementById("countdown").innerText="00:00";
+}
+
+
+/* DATE DIFFERENCE */
+
+function dateDifference(){
+
+let a=new Date(document.getElementById("date1").value);
+
+let b=new Date(document.getElementById("date2").value);
+
+if(isNaN(a)||isNaN(b)){
+document.getElementById("dateResult").innerText=
+"⚠️ Select both dates";
+return;
+}
+
+let days=Math.abs(
+Math.round((b-a)/(1000*60*60*24))
+);
+
+document.getElementById("dateResult").innerText=
+days+" day(s) difference";
+}
+
+
+/* AGE */
+
+function calculateAge(){
+
+let birth=new Date(
+document.getElementById("birthDate").value
+);
+
+if(isNaN(birth)){
+document.getElementById("ageResult").innerText=
+"⚠️ Select your birth date";
+return;
+}
+
+let today=new Date();
+
+let age=today.getFullYear()-birth.getFullYear();
+
+let month=today.getMonth()-birth.getMonth();
+
+if(
+month<0 ||
+(month===0 && today.getDate()<birth.getDate())
+){
+age--;
+}
+
+document.getElementById("ageResult").innerText=
+"Age: "+age+" years";
+}
+
+
+/* LENGTH */
+
+function convertLength(){
+
+let value=Number(
+document.getElementById("lengthValue").value
+);
+
+let from=document.getElementById("lengthFrom").value;
+
+let to=document.getElementById("lengthTo").value;
+
+let meter={
+meter:1,
+kilometer:1000,
+centimeter:.01,
+mile:1609.344,
+foot:.3048
+};
+
+let result=value*meter[from]/meter[to];
+
+document.getElementById("lengthResult").innerText=
+result+" "+to;
+}
+
+
+/* WEIGHT */
+
+function convertWeight(){
+
+let value=Number(
+document.getElementById("weightValue").value
+);
+
+let from=document.getElementById("weightFrom").value;
+
+let to=document.getElementById("weightTo").value;
+
+let kg={
+kg:1,
+g:.001,
+lb:.45359237
+};
+
+let result=value*kg[from]/kg[to];
+
+document.getElementById("weightResult").innerText=
+result+" "+to;
+}
+
+
+/* TEMPERATURE */
+
+function convertTemp(){
+
+let v=Number(
+document.getElementById("tempValue").value
+);
+
+let from=document.getElementById("tempFrom").value;
+
+let to=document.getElementById("tempTo").value;
+
+let c;
+
+if(from==="c")c=v;
+
+if(from==="f")c=(v-32)*5/9;
+
+if(from==="k")c=v-273.15;
+
+let result;
+
+if(to==="c")result=c;
+
+if(to==="f")result=c*9/5+32;
+
+if(to==="k")result=c+273.15;
+
+document.getElementById("tempResult").innerText=
+result.toFixed(2)+" "+to.toUpperCase();
+}
+
+
+/* TIME */
+
+function convertTime(){
+
+let v=Number(
+document.getElementById("timeValue").value
+);
+
+let from=document.getElementById("timeFrom").value;
+
+let to=document.getElementById("timeTo").value;
+
+let sec={
+seconds:1,
+minutes:60,
+hours:3600,
+days:86400
+};
+
+let result=v*sec[from]/sec[to];
+
+document.getElementById("timeResult").innerText=
+result+" "+to;
+}
+
+
+/* DATA */
+
+function convertData(){
+
+let v=Number(
+document.getElementById("dataValue").value
+);
+
+let from=document.getElementById("dataFrom").value;
+
+let to=document.getElementById("dataTo").value;
+
+let bytes={
+byte:1,
+kb:1024,
+mb:1024*1024,
+gb:1024*1024*1024
+};
+
+let result=v*bytes[from]/bytes[to];
+
+document.getElementById("dataResult").innerText=
+result+" "+to.toUpperCase();
+}
+
+
+/* QR */
+
+function generateQR(){
+
+let text=document.getElementById("qrText").value;
+
+if(text===""){
+document.getElementById("qrResult").innerText=
+"⚠️ Enter text or URL";
+return;
+}
+
+let url=
+"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+
+encodeURIComponent(text);
+
+document.getElementById("qrResult").innerHTML=
+'<img src="'+url+'" alt="QR Code" style="max-width:200px">';
+}
+
+
+/* PASSWORD */
+
+function generatePassword(){
+
+let length=Number(
+document.getElementById("passLength").value
+);
+
+let chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+let password="";
+
+for(let i=0;i<length;i++){
+
+password+=chars.charAt(
+Math.floor(Math.random()*chars.length)
+);
+
+}
+
+document.getElementById("passwordResult").innerText=
+password;
+}
+
+
+/* URL */
+
+function encodeURL(){
+
+let text=document.getElementById("urlText").value;
+
+document.getElementById("urlResult").innerText=
+encodeURIComponent(text);
+}
+
+function decodeURL(){
+
+let text=document.getElementById("urlText").value;
+
+try{
+
+document.getElementById("urlResult").innerText=
+decodeURIComponent(text);
+
+}catch{
+
+document.getElementById("urlResult").innerText=
+"⚠️ Invalid encoded text";
+}
+}
+
+
+/* IMAGE COMPRESS */
+
+function compressImageFile(){
+
+let file=
+document.getElementById("compressImage").files[0];
+
+if(!file)return;
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+let max=1200;
+
+let scale=Math.min(1,max/img.width);
+
+canvas.width=img.width*scale;
+
+canvas.height=img.height*scale;
+
+let ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("compressResult").innerHTML=
+'<a href="'+url+'" download="compressed-image.jpg">Download Compressed Image</a>';
+
+},"image/jpeg",.7);
+
+};
+
+img.src=URL.createObjectURL(file);
+}
+
+
+/* IMAGE RESIZE */
+
+function resizeImageFile(){
+
+let file=
+document.getElementById("resizeImage").files[0];
+
+let width=Number(
+document.getElementById("resizeWidth").value
+);
+
+if(!file || width<=0)return;
+
+let img=new Image();
+
+img.onload=function(){
+
+let ratio=width/img.width;
+
+let canvas=document.createElement("canvas");
+
+canvas.width=width;
+
+canvas.height=img.height*ratio;
+
+let ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("resizeResult").innerHTML=
+'<a href="'+url+'" download="resized-image.png">Download Resized Image</a>';
+
+},"image/png");
+
+};
+
+img.src=URL.createObjectURL(file);
+}
+
+
+/* IMAGE TO PNG */
+
+function convertImageFile(){
+
+let file=
+document.getElementById("convertImage").files[0];
+
+if(!file)return;
+
+let img=new Image();
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(function(blob){
+
+let url=URL.createObjectURL(blob);
+
+document.getElementById("convertImageResult").innerHTML=
+'<a href="'+url+'" download="converted-image.png">Download PNG</a>';
+
+},"image/png");
+
+};
+
+img.src=URL.createObjectURL(file);
+}
+
+
+/* IMAGE PDF */
+
+function imageToPDF(){
+
+let file=
+document.getElementById("pdfImage").files[0];
+
+if(!file)return;
+
+document.getElementById("pdfImageResult").innerText=
+"Image selected: "+file.name+
+" — PDF export module ready.";
+}
+
+
+/* PDF MESSAGE */
+
+function pdfMessage(){
+
+alert(
+"PDF processing module will be connected in the next version."
+);
+}
+
+
+/* DISCOUNT */
+
+function discountCalc(){
+
+let price=Number(
+document.getElementById("price").value
+);
+
+let discount=Number(
+document.getElementById("discount").value
+);
+
+if(price<0 || discount<0){
+
+document.getElementById("discountResult").innerText=
+"⚠️ Enter valid values";
+
+return;
+}
+
+let saved=price*discount/100;
+
+let finalPrice=price-saved;
+
+document.getElementById("discountResult").innerText=
+"Discount: "+saved.toFixed(2)+
+" | Final Price: "+finalPrice.toFixed(2);
+}
+
+
+/* TIP */
+
+function tipCalc(){
+
+let bill=Number(
+document.getElementById("bill").value
+);
+
+let tip=Number(
+document.getElementById("tip").value
+);
+
+let people=Number(
+document.getElementById("people").value
+);
+
+if(bill<=0 || people<=0){
+
+document.getElementById("tipResult").innerText=
+"⚠️ Enter valid values";
+
+return;
+}
+
+let tipAmount=bill*tip/100;
+
+let total=bill+tipAmount;
+
+let each=total/people;
+
+document.getElementById("tipResult").innerText=
+"Total: "+total.toFixed(2)+
+" | Each: "+each.toFixed(2);
+}
+
+
+/* MARKS */
+
+function percentage(){
+
+let marks=Number(
+document.getElementById("marks").value
+);
+
+let total=Number(
+document.getElementById("total").value
+);
+
+if(
+marks<0 ||
+total<=0 ||
+marks>total
+){
+
+document.getElementById("percentageResult").innerText=
+"⚠️ Please enter valid marks";
+
+return;
+}
+
+let result=(marks/total)*100;
+
+document.getElementById("percentageResult").innerText=
+"Percentage: "+result.toFixed(2)+"%";
+}
+
+
+/* CGPA */
+
+function cgpaConvert(){
+
+let cgpa=Number(
+document.getElementById("cgpa").value
+);
+
+if(cgpa<0 || cgpa>10){
+
+document.getElementById("cgpaResult").innerText=
+"⚠️ Enter CGPA between 0 and 10";
+
+return;
+}
+
+let result=cgpa*9.5;
+
+document.getElementById("cgpaResult").innerText=
+"Approx. Percentage: "+
+result.toFixed(2)+"%";
+}
+
+
+/* 45 MINUTE STUDY TIMER */
+
+let studyTime=45*60;
+
+let studyInterval=null;
+
+function updateStudyTimer(){
+
+let minutes=Math.floor(studyTime/60);
+
+let seconds=studyTime%60;
+
+document.getElementById("studyTimer").innerText=
+String(minutes).padStart(2,"0")+
+":"+
+String(seconds).padStart(2,"0");
+}
+
+function startStudyTimer(){
+
+if(studyInterval!==null)return;
+
+studyInterval=setInterval(function(){
+
+if(studyTime>0){
+
+studyTime--;
+
+updateStudyTimer();
+
+}else{
+
+clearInterval(studyInterval);
+
+studyInterval=null;
+
+alert("🎉 45-minute session complete!");
+
+}
+
+},1000);
+}
+
+function pauseStudyTimer(){
+
+clearInterval(studyInterval);
+
+studyInterval=null;
+}
+
+function resetStudyTimer(){
+
+pauseStudyTimer();
+
+studyTime=45*60;
+
+updateStudyTimer();
 }
 
 </script>
