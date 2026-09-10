@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SmartMitra - Free Useful Tools</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -17,11 +23,18 @@ color:#222;
 header{
 background:linear-gradient(135deg,#2563eb,#7c3aed);
 color:white;
-padding:25px 15px;
+padding:28px 15px;
 text-align:center;
 }
 
-header h1{font-size:32px;margin-bottom:8px}
+header h1{
+font-size:34px;
+margin-bottom:8px;
+}
+
+header p{
+font-size:16px;
+}
 
 nav{
 background:white;
@@ -36,10 +49,14 @@ box-shadow:0 2px 10px #ddd;
 nav button{
 border:0;
 background:#eef2ff;
-padding:11px 16px;
+padding:11px 17px;
 border-radius:10px;
-cursor:pointer;
 font-weight:bold;
+cursor:pointer;
+}
+
+nav button:hover{
+background:#dbe4ff;
 }
 
 .container{
@@ -48,28 +65,33 @@ margin:auto;
 padding:25px 15px;
 }
 
-.page{display:none}
-.page.active{display:block}
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
 
 h2{
-margin-bottom:18px;
 color:#1e3a8a;
+margin-bottom:12px;
 }
 
 .subtitle{
-margin-bottom:22px;
 color:#666;
+margin-bottom:25px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
+gap:18px;
 }
 
 .card{
 background:white;
-padding:22px;
+padding:23px;
 border-radius:16px;
 box-shadow:0 3px 12px #ddd;
 cursor:pointer;
@@ -77,55 +99,87 @@ transition:.2s;
 }
 
 .card:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
+box-shadow:0 7px 18px #ccc;
 }
 
-.card h3{margin-bottom:8px}
-.card p{color:#666;font-size:14px}
+.card h3{
+margin-bottom:9px;
+}
+
+.card p{
+color:#666;
+font-size:14px;
+line-height:1.5;
+}
 
 .tool{
 background:white;
-padding:20px;
-border-radius:15px;
+padding:22px;
+border-radius:16px;
 box-shadow:0 3px 12px #ddd;
+margin-bottom:18px;
+}
+
+.tool h3{
 margin-bottom:15px;
 }
 
-.tool h3{margin-bottom:12px}
-
-input,select,textarea{
+input,
+select,
+textarea{
 width:100%;
-padding:11px;
-margin:6px 0 10px;
+padding:12px;
+margin:7px 0 12px;
 border:1px solid #ccc;
-border-radius:8px;
+border-radius:9px;
+font-size:15px;
 }
 
 button.action{
 background:#2563eb;
 color:white;
 border:0;
-padding:11px 16px;
-border-radius:8px;
+padding:11px 18px;
+border-radius:9px;
 cursor:pointer;
+font-weight:bold;
+margin:3px;
+}
+
+button.action:hover{
+background:#1d4ed8;
 }
 
 button.back{
 background:#555;
 color:white;
 border:0;
-padding:10px 15px;
-border-radius:8px;
-margin-bottom:18px;
+padding:10px 16px;
+border-radius:9px;
 cursor:pointer;
+margin-bottom:20px;
 }
 
 .result{
-margin-top:10px;
-padding:12px;
+margin-top:13px;
+padding:13px;
 background:#eef6ff;
-border-radius:8px;
+border-radius:9px;
 font-weight:bold;
+word-break:break-word;
+}
+
+.result a{
+color:#2563eb;
+font-weight:bold;
+text-decoration:none;
+}
+
+.preview{
+max-width:100%;
+margin-top:15px;
+border-radius:10px;
 }
 
 footer{
@@ -136,71 +190,151 @@ color:white;
 text-align:center;
 }
 
-@media(max-width:600px){
-header h1{font-size:27px}
-nav button{padding:9px 11px;font-size:13px}
+.home{
+text-align:center;
 }
+
+.home h2{
+font-size:30px;
+}
+
+@media(max-width:600px){
+
+header h1{
+font-size:27px;
+}
+
+nav button{
+font-size:13px;
+padding:9px 11px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
 <header>
+
 <h1>🚀 SmartMitra</h1>
+
 <p>Free Useful Tools for Everyone</p>
+
 </header>
 
+
 <nav>
-<button onclick="showPage('home')">🏠 Home</button>
-<button onclick="showPage('study')">📚 Study</button>
-<button onclick="showPage('technology')">💻 Technology</button>
-<button onclick="showPage('calculators')">🧮 Calculators</button>
-<button onclick="showPage('daily')">🛠️ Daily Tools</button>
+
+<button onclick="showPage('home')">
+🏠 Home
+</button>
+
+<button onclick="showPage('study')">
+📚 Study
+</button>
+
+<button onclick="showPage('technology')">
+💻 Technology
+</button>
+
+<button onclick="showPage('calculators')">
+🧮 Calculators
+</button>
+
+<button onclick="showPage('daily')">
+🛠️ Daily Tools
+</button>
+
 </nav>
+
 
 <div class="container">
 
+
 <!-- HOME -->
-<section id="home" class="page active">
+
+<section id="home" class="page active home">
 
 <h2>Welcome to SmartMitra</h2>
-<p class="subtitle">Simple, free and useful online tools.</p>
+
+<p class="subtitle">
+Simple, free and useful online tools.
+</p>
 
 <h2>🔥 Popular Categories</h2>
 
 <div class="grid">
 
 <div class="card" onclick="showPage('study')">
+
 <h3>📚 Study</h3>
-<p>Useful tools and resources for students.</p>
+
+<p>
+Useful tools and resources for students.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('technology')">
+
 <h3>💻 Technology</h3>
-<p>Technology and website development tools.</p>
+
+<p>
+Technology and website development tools.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('calculators')">
+
 <h3>🧮 Calculators</h3>
-<p>Useful calculators for everyday needs.</p>
+
+<p>
+Useful calculators for everyday needs.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('daily')">
+
 <h3>🛠️ Daily Tools</h3>
-<p>Image, PDF, converter, text, time and more.</p>
+
+<p>
+Image, PDF, converter, text, time and many more tools.
+</p>
+
 </div>
 
 </div>
+
 </section>
 
 
+
 <!-- STUDY -->
+
 <section id="study" class="page">
 
-<button class="back" onclick="showPage('home')">← Back</button>
+<button class="back" onclick="showPage('home')">
+← Back to Home
+</button>
 
 <h2>📚 Study</h2>
-<p class="subtitle">Study resources and tools.</p>
+
+<p class="subtitle">
+Study resources and student tools.
+</p>
 
 <div class="grid">
 
@@ -211,7 +345,7 @@ nav button{padding:9px 11px;font-size:13px}
 
 <div class="card">
 <h3>📝 Notes</h3>
-<p>Study notes and learning resources.</p>
+<p>Learning notes and resources.</p>
 </div>
 
 <div class="card">
@@ -220,22 +354,30 @@ nav button{padding:9px 11px;font-size:13px}
 </div>
 
 </div>
+
 </section>
 
 
+
 <!-- TECHNOLOGY -->
+
 <section id="technology" class="page">
 
-<button class="back" onclick="showPage('home')">← Back</button>
+<button class="back" onclick="showPage('home')">
+← Back to Home
+</button>
 
 <h2>💻 Technology</h2>
-<p class="subtitle">Technology and development tools.</p>
+
+<p class="subtitle">
+Technology and development tools.
+</p>
 
 <div class="grid">
 
 <div class="card">
 <h3>🌐 Website Development</h3>
-<p>Tools for creating websites.</p>
+<p>Useful tools for creating websites.</p>
 </div>
 
 <div class="card">
@@ -249,342 +391,716 @@ nav button{padding:9px 11px;font-size:13px}
 </div>
 
 </div>
+
 </section>
+
 
 
 <!-- CALCULATORS -->
+
 <section id="calculators" class="page">
 
-<button class="back" onclick="showPage('home')">← Back</button>
+<button class="back" onclick="showPage('home')">
+← Back to Home
+</button>
 
 <h2>🧮 Calculators</h2>
-<p class="subtitle">Useful calculators.</p>
+
+<p class="subtitle">
+Useful calculators.
+</p>
 
 <div class="grid">
 
-<div class="card" onclick="percentageCalculator()">
-<h3>📊 Percentage</h3>
-<p>Calculate percentage.</p>
+<div class="tool">
+
+<h3>📊 Percentage Calculator</h3>
+
+<input
+type="number"
+id="calcObtained"
+placeholder="Marks obtained"
+>
+
+<input
+type="number"
+id="calcTotal"
+placeholder="Total marks"
+>
+
+<button class="action" onclick="calculatePercentage()">
+Calculate
+</button>
+
+<div id="percentageResult" class="result"></div>
+
 </div>
 
-<div class="card" onclick="ageCalculator()">
+
+<div class="tool">
+
 <h3>🎂 Age Calculator</h3>
-<p>Calculate your age.</p>
+
+<input
+type="date"
+id="birthDate"
+>
+
+<button class="action" onclick="calculateAge()">
+Calculate Age
+</button>
+
+<div id="ageResult" class="result"></div>
+
 </div>
 
-<div class="card">
+
+<div class="tool">
+
 <h3>🏦 EMI Calculator</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
-<div class="card">
+
+<div class="tool">
+
 <h3>🧾 GST Calculator</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
-<div class="card">
+
+<div class="tool">
+
 <h3>⚖️ BMI Calculator</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
 </div>
+
 </section>
+
 
 
 <!-- DAILY TOOLS -->
+
 <section id="daily" class="page">
 
-<button class="back" onclick="showPage('home')">← Back</button>
+<button class="back" onclick="showPage('home')">
+← Back to Home
+</button>
 
 <h2>🛠️ Daily Tools</h2>
-<p class="subtitle">Choose a tool category.</p>
+
+<p class="subtitle">
+Choose a tool category.
+</p>
+
 
 <div class="grid">
 
+
 <div class="card" onclick="showPage('imageTools')">
+
 <h3>🖼️ Image Tools</h3>
-<p>Compress, resize and convert images.</p>
+
+<p>
+Compress, resize and convert images.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('pdfTools')">
+
 <h3>📄 PDF Tools</h3>
-<p>Merge, split and compress PDF.</p>
+
+<p>
+Merge, split and compress PDF files.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('converterTools')">
+
 <h3>🔄 Converters</h3>
-<p>Length, weight, temperature and more.</p>
+
+<p>
+Length, weight, temperature, time and storage.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('textTools')">
+
 <h3>📝 Text Tools</h3>
-<p>Word counter, case converter and more.</p>
+
+<p>
+Word counter, case converter and text utilities.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('timeTools')">
+
 <h3>⏰ Time & Date</h3>
-<p>Stopwatch, countdown and date tools.</p>
+
+<p>
+Stopwatch, countdown and date tools.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('internetTools')">
+
 <h3>🌐 Internet Tools</h3>
-<p>QR, URL and password tools.</p>
+
+<p>
+QR, password and URL tools.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('usefulTools')">
+
 <h3>🧮 Useful Tools</h3>
-<p>Marks, CGPA, study timer and discount.</p>
+
+<p>
+Marks, CGPA, study timer and discount.
+</p>
+
 </div>
+
 
 <div class="card" onclick="showPage('moreTools')">
+
 <h3>➕ More Tools</h3>
-<p>More useful everyday tools.</p>
-</div>
+
+<p>
+More useful everyday tools.
+</p>
 
 </div>
+
+
+</div>
+
 </section>
+
 
 
 <!-- IMAGE TOOLS -->
+
 <section id="imageTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>🖼️ Image Tools</h2>
 
+<p class="subtitle">
+Choose an image tool.
+</p>
+
+
 <div class="tool">
-<h3>📦 Target KB Image Compressor</h3>
 
-<input type="file" id="imageFile" accept="image/*">
+<h3>📦 Image Compressor</h3>
 
-<select id="targetKB">
-<option value="10">10 KB</option>
-<option value="20">20 KB</option>
-<option value="30">30 KB</option>
-<option value="50">50 KB</option>
-<option value="75">75 KB</option>
-<option value="100">100 KB</option>
-</select>
+<label>
+<b>Target Size (KB)</b>
+</label>
 
-<button class="action" onclick="compressImage()">Compress Image</button>
+<input
+type="number"
+id="targetKB"
+min="1"
+step="1"
+placeholder="Example: 50"
+>
 
-<div id="compressResult" class="result"></div>
+
+<label>
+<b>Choose Image</b>
+</label>
+
+<input
+type="file"
+id="imageFile"
+accept="image/*"
+>
+
+
+<button class="action" onclick="compressImage()">
+🔽 Compress Image
+</button>
+
+
+<div
+id="compressStatus"
+class="result"
+>
+Enter KB and choose an image.
 </div>
 
+</div>
+
+
 <div class="tool">
+
 <h3>📐 Image Resizer</h3>
-<input type="file" accept="image/*">
-<p>Image resize tool coming soon.</p>
+
+<p>
+Image Resizer coming soon.
+</p>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🔄 JPG / PNG Converter</h3>
-<input type="file" accept="image/*">
-<p>Image converter coming soon.</p>
+
+<p>
+JPG / PNG Converter coming soon.
+</p>
+
 </div>
 
+
 <div class="tool">
+
 <h3>📄 Image → PDF</h3>
-<input type="file" accept="image/*">
-<p>Image to PDF coming soon.</p>
+
+<p>
+Image to PDF coming soon.
+</p>
+
 </div>
 
 </section>
 
 
+
 <!-- PDF TOOLS -->
+
 <section id="pdfTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>📄 PDF Tools</h2>
+
+<p class="subtitle">
+Choose a PDF tool.
+</p>
+
+
+<div class="grid">
+
+
+<div class="tool">
+
+<h3>📑 PDF Merge</h3>
+
+<p>
+Combine multiple PDF files.
+</p>
+
+<br>
+
+<button class="action" onclick="comingSoon()">
+Open Tool
+</button>
+
+</div>
+
+
+<div class="tool">
+
+<h3>✂️ PDF Split</h3>
+
+<p>
+Split PDF pages.
+</p>
+
+<br>
+
+<button class="action" onclick="comingSoon()">
+Open Tool
+</button>
+
+</div>
+
+
+<div class="tool">
+
+<h3>📦 PDF Compress</h3>
+
+<p>
+Reduce PDF file size.
+</p>
+
+<br>
+
+<button class="action" onclick="comingSoon()">
+Open Tool
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- CONVERTERS -->
+
+<section id="converterTools" class="page">
+
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
+
+<h2>🔄 Converters</h2>
+
+<p class="subtitle">
+Useful unit converters.
+</p>
+
+
+<div class="tool">
+
+<h3>📏 Length Converter</h3>
+
+<input
+type="number"
+id="lengthValue"
+placeholder="Enter value"
+>
+
+
+<select id="lengthFrom">
+
+<option value="m">Meter</option>
+
+<option value="km">Kilometer</option>
+
+<option value="cm">Centimeter</option>
+
+<option value="mm">Millimeter</option>
+
+<option value="ft">Feet</option>
+
+<option value="in">Inch</option>
+
+</select>
+
+
+<select id="lengthTo">
+
+<option value="m">Meter</option>
+
+<option value="km">Kilometer</option>
+
+<option value="cm">Centimeter</option>
+
+<option value="mm">Millimeter</option>
+
+<option value="ft">Feet</option>
+
+<option value="in">Inch</option>
+
+</select>
+
+
+<button class="action" onclick="convertLength()">
+Convert
+</button>
+
+
+<div id="lengthResult" class="result"></div>
+
+</div>
+
 
 <div class="grid">
 
 <div class="tool">
-<h3>📑 PDF Merge</h3>
-<p>Combine multiple PDF files.</p>
-</div>
 
-<div class="tool">
-<h3>✂️ PDF Split</h3>
-<p>Split PDF pages.</p>
-</div>
-
-<div class="tool">
-<h3>📦 PDF Compress</h3>
-<p>Reduce PDF file size.</p>
-</div>
-
-</div>
-</section>
-
-
-<!-- CONVERTERS -->
-<section id="converterTools" class="page">
-
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
-
-<h2>🔄 Converters</h2>
-
-<div class="tool">
-<h3>📏 Length Converter</h3>
-
-<input type="number" id="lengthInput" placeholder="Enter value">
-
-<select id="lengthFrom">
-<option value="m">Meter</option>
-<option value="km">Kilometer</option>
-<option value="cm">Centimeter</option>
-<option value="ft">Feet</option>
-<option value="in">Inch</option>
-</select>
-
-<select id="lengthTo">
-<option value="m">Meter</option>
-<option value="km">Kilometer</option>
-<option value="cm">Centimeter</option>
-<option value="ft">Feet</option>
-<option value="in">Inch</option>
-</select>
-
-<button class="action" onclick="convertLength()">Convert</button>
-
-<div id="lengthResult" class="result"></div>
-</div>
-
-<div class="tool">
 <h3>⚖️ Weight Converter</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🌡️ Temperature Converter</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
+
 <div class="tool">
+
 <h3>⏱️ Time Converter</h3>
+
 <p>Coming soon.</p>
+
 </div>
 
+
 <div class="tool">
-<h3>💾 Data Storage Converter</h3>
+
+<h3>💾 Data Storage</h3>
+
 <p>Coming soon.</p>
+
+</div>
+
 </div>
 
 </section>
+
 
 
 <!-- TEXT TOOLS -->
+
 <section id="textTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>📝 Text Tools</h2>
 
+
 <div class="tool">
+
 <h3>🔢 Word & Character Counter</h3>
 
-<textarea id="textCounter" rows="7"
-placeholder="Type or paste your text here..."
-oninput="countText()"></textarea>
+<textarea
+id="counterText"
+rows="7"
+placeholder="Type or paste your text..."
+oninput="countText()"
+></textarea>
 
-<div id="countResult" class="result">
+<div id="counterResult" class="result">
 Words: 0 | Characters: 0
 </div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🔠 Case Converter</h3>
 
-<textarea id="caseText" rows="5"
-placeholder="Enter text..."></textarea>
+<textarea
+id="caseText"
+rows="5"
+placeholder="Enter text..."
+></textarea>
 
-<button class="action" onclick="upperCase()">UPPERCASE</button>
-<button class="action" onclick="lowerCase()">lowercase</button>
+<button class="action" onclick="makeUpper()">
+UPPERCASE
+</button>
+
+<button class="action" onclick="makeLower()">
+lowercase
+</button>
+
+<button class="action" onclick="makeTitle()">
+Title Case
+</button>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🧹 Remove Extra Spaces</h3>
 
-<textarea id="spaceText" rows="5"
-placeholder="Enter text..."></textarea>
+<textarea
+id="spaceText"
+rows="5"
+placeholder="Enter text..."
+></textarea>
 
-<button class="action" onclick="removeSpaces()">Remove Spaces</button>
+<button class="action" onclick="removeSpaces()">
+Clean Text
+</button>
 
 <div id="spaceResult" class="result"></div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🔎 Find & Replace</h3>
-<p>Coming soon.</p>
+
+<textarea
+id="findText"
+rows="5"
+placeholder="Enter your text..."
+></textarea>
+
+<input
+id="findWord"
+placeholder="Find"
+/>
+
+<input
+id="replaceWord"
+placeholder="Replace with"
+/>
+
+<button class="action" onclick="findReplace()">
+Replace
+</button>
+
+<div id="replaceResult" class="result"></div>
+
 </div>
 
 </section>
 
 
-<!-- TIME -->
+
+<!-- TIME & DATE -->
+
 <section id="timeTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>⏰ Time & Date</h2>
 
+
 <div class="tool">
+
 <h3>⏱️ Stopwatch</h3>
 
-<div id="stopwatch" class="result">00:00:00</div>
+<div id="stopwatchDisplay" class="result">
+00:00:00
+</div>
 
 <br>
 
-<button class="action" onclick="startStopwatch()">Start</button>
-<button class="action" onclick="stopStopwatch()">Stop</button>
-<button class="action" onclick="resetStopwatch()">Reset</button>
+<button class="action" onclick="startStopwatch()">
+Start
+</button>
+
+<button class="action" onclick="stopStopwatch()">
+Stop
+</button>
+
+<button class="action" onclick="resetStopwatch()">
+Reset
+</button>
+
 </div>
 
+
 <div class="tool">
+
 <h3>⏳ Countdown Timer</h3>
 
-<input type="number" id="countdownInput" placeholder="Seconds">
+<input
+type="number"
+id="countdownSeconds"
+placeholder="Seconds"
+/>
 
-<button class="action" onclick="startCountdown()">Start</button>
+<button class="action" onclick="startCountdown()">
+Start
+</button>
 
-<div id="countdownResult" class="result">00</div>
+<div id="countdownDisplay" class="result">
+00
 </div>
 
+</div>
+
+
 <div class="tool">
+
 <h3>📅 Date Difference</h3>
 
-<input type="date" id="date1">
-<input type="date" id="date2">
+<input
+type="date"
+id="dateOne"
+/>
 
-<button class="action" onclick="dateDifference()">Calculate</button>
+<input
+type="date"
+id="dateTwo"
+/>
 
-<div id="dateResult" class="result"></div>
+<button class="action" onclick="dateDifference()">
+Calculate
+</button>
+
+<div id="dateDifferenceResult" class="result"></div>
+
 </div>
 
 </section>
 
 
-<!-- INTERNET -->
+
+<!-- INTERNET TOOLS -->
+
 <section id="internetTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>🌐 Internet Tools</h2>
 
+
 <div class="tool">
+
 <h3>📱 QR Code Generator</h3>
 
-<input id="qrText" placeholder="Enter text or URL">
+<input
+type="text"
+id="qrText"
+placeholder="Enter text or URL"
+/>
 
-<button class="action" onclick="generateQR()">Generate QR</button>
+<button class="action" onclick="generateQR()">
+Generate QR
+</button>
 
 <div id="qrResult" class="result"></div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🔐 Password Generator</h3>
 
 <button class="action" onclick="generatePassword()">
@@ -592,342 +1108,734 @@ Generate Password
 </button>
 
 <div id="passwordResult" class="result"></div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🔗 URL Encoder / Decoder</h3>
 
-<textarea id="urlText" rows="4"
-placeholder="Enter URL or text"></textarea>
+<textarea
+id="urlText"
+rows="4"
+placeholder="Enter URL or text..."
+></textarea>
 
-<button class="action" onclick="encodeURL()">Encode</button>
-<button class="action" onclick="decodeURL()">Decode</button>
+<button class="action" onclick="encodeURL()">
+Encode
+</button>
+
+<button class="action" onclick="decodeURL()">
+Decode
+</button>
+
 </div>
 
 </section>
+
 
 
 <!-- USEFUL TOOLS -->
+
 <section id="usefulTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>🧮 Useful Tools</h2>
 
+
 <div class="tool">
+
 <h3>📊 Marks → Percentage</h3>
 
-<input type="number" id="marksObtained" placeholder="Marks obtained">
-<input type="number" id="totalMarks" placeholder="Total marks">
+<input
+type="number"
+id="marksObtained"
+placeholder="Marks obtained"
+/>
 
-<button class="action" onclick="marksPercentage()">Calculate</button>
+<input
+type="number"
+id="marksTotal"
+placeholder="Total marks"
+/>
+
+<button class="action" onclick="marksPercentage()">
+Calculate
+</button>
 
 <div id="marksResult" class="result"></div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>🎓 CGPA → Percentage</h3>
 
-<input type="number" id="cgpa" placeholder="Enter CGPA">
+<input
+type="number"
+id="cgpaValue"
+step="0.01"
+placeholder="Enter CGPA"
+/>
 
-<button class="action" onclick="cgpaPercentage()">Calculate</button>
+<button class="action" onclick="cgpaPercentage()">
+Calculate
+</button>
 
 <div id="cgpaResult" class="result"></div>
+
 </div>
 
+
 <div class="tool">
+
 <h3>📚 45-Minute Study Timer</h3>
 
-<button class="action" onclick="studyTimer()">
+<button class="action" onclick="startStudyTimer()">
 Start 45 Minutes
 </button>
 
-<div id="studyResult" class="result">45:00</div>
+<div id="studyTimerDisplay" class="result">
+45:00
 </div>
 
+</div>
+
+
 <div class="tool">
+
 <h3>🏷️ Discount Calculator</h3>
 
-<input type="number" id="price" placeholder="Original price">
-<input type="number" id="discount" placeholder="Discount %">
+<input
+type="number"
+id="originalPrice"
+placeholder="Original price"
+/>
 
-<button class="action" onclick="discountCalculator()">Calculate</button>
+<input
+type="number"
+id="discountPercent"
+placeholder="Discount %"
+/>
+
+<button class="action" onclick="discountCalculate()">
+Calculate
+</button>
 
 <div id="discountResult" class="result"></div>
+
 </div>
 
 </section>
 
 
+
 <!-- MORE TOOLS -->
+
 <section id="moreTools" class="page">
 
-<button class="back" onclick="showPage('daily')">← Daily Tools</button>
+<button class="back" onclick="showPage('daily')">
+← Daily Tools
+</button>
 
 <h2>➕ More Tools</h2>
 
+<p class="subtitle">
+More useful tools will be added here.
+</p>
+
+
 <div class="grid">
 
-<div class="card">
-<h3>🗜️ ZIP Tools</h3>
-<p>File compression tools.</p>
-</div>
 
 <div class="card">
 <h3>🔢 Number Tools</h3>
 <p>Useful number utilities.</p>
 </div>
 
+
 <div class="card">
 <h3>📋 Clipboard Tools</h3>
 <p>Useful clipboard utilities.</p>
 </div>
 
+
 <div class="card">
-<h3>🛠️ More Coming Soon</h3>
-<p>More useful tools will be added.</p>
+<h3>📦 File Tools</h3>
+<p>More file utilities coming soon.</p>
 </div>
 
+
+<div class="card">
+<h3>🛠️ More Coming Soon</h3>
+<p>New useful tools will be added.</p>
 </div>
+
+
+</div>
+
 </section>
+
 
 </div>
 
 
 <footer>
+
 © 2026 SmartMitra | Free Useful Tools ❤️
+
 </footer>
+
 
 
 <script>
 
+
+/* PAGE NAVIGATION */
+
 function showPage(page){
 
-document.querySelectorAll('.page').forEach(p=>{
-p.classList.remove('active');
+document.querySelectorAll(".page").forEach(function(p){
+
+p.classList.remove("active");
+
 });
 
-document.getElementById(page).classList.add('active');
+document.getElementById(page).classList.add("active");
 
 window.scrollTo(0,0);
+
 }
 
 
-/* TEXT */
 
-function countText(){
+/* IMAGE COMPRESSOR */
 
-let text=document.getElementById("textCounter").value;
+function createImageBlob(image,width,height,quality){
 
-let words=text.trim()==="" ? 0 :
-text.trim().split(/\s+/).length;
+return new Promise(function(resolve){
 
-document.getElementById("countResult").innerText=
-"Words: "+words+" | Characters: "+text.length;
+const canvas=document.createElement("canvas");
+
+canvas.width=width;
+
+canvas.height=height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(
+image,
+0,
+0,
+width,
+height
+);
+
+canvas.toBlob(
+function(blob){
+
+resolve(blob);
+
+},
+"image/jpeg",
+quality
+);
+
+});
+
 }
 
-function upperCase(){
-document.getElementById("caseText").value=
-document.getElementById("caseText").value.toUpperCase();
+
+async function compressImage(){
+
+const file=
+document.getElementById("imageFile").files[0];
+
+const targetKB=
+parseFloat(
+document.getElementById("targetKB").value
+);
+
+const status=
+document.getElementById("compressStatus");
+
+
+if(!file){
+
+status.innerText=
+"❌ Please choose an image.";
+
+return;
+
 }
 
-function lowerCase(){
-document.getElementById("caseText").value=
-document.getElementById("caseText").value.toLowerCase();
-}
 
-function removeSpaces(){
+if(!targetKB || targetKB<=0){
 
-let text=document.getElementById("spaceText").value;
+status.innerText=
+"❌ Please enter a valid KB size.";
 
-document.getElementById("spaceResult").innerText=
-text.replace(/\s+/g," ").trim();
+return;
+
 }
 
 
-/* LENGTH */
+status.innerText=
+"⏳ Compressing image...";
+
+
+const targetBytes=
+targetKB*1024;
+
+
+const image=
+new Image();
+
+
+image.onload=async function(){
+
+
+let width=image.width;
+
+let height=image.height;
+
+let quality=0.85;
+
+let bestBlob=null;
+
+
+/*
+Try compression several times.
+*/
+
+for(let attempt=0;attempt<15;attempt++){
+
+
+let blob=
+await createImageBlob(
+image,
+width,
+height,
+quality
+);
+
+
+bestBlob=blob;
+
+
+if(blob.size<=targetBytes){
+
+break;
+
+}
+
+
+/*
+Reduce quality first.
+*/
+
+if(quality>0.25){
+
+quality-=0.08;
+
+}else{
+
+/*
+Then reduce dimensions.
+*/
+
+width=
+Math.max(
+100,
+Math.floor(width*0.85)
+);
+
+height=
+Math.max(
+100,
+Math.floor(height*0.85)
+);
+
+quality=0.75;
+
+}
+
+}
+
+
+/*
+Final quality search if possible.
+*/
+
+if(bestBlob.size>targetBytes){
+
+let low=0.05;
+
+let high=quality;
+
+for(let i=0;i<8;i++){
+
+let mid=(low+high)/2;
+
+let testBlob=
+await createImageBlob(
+image,
+width,
+height,
+mid
+);
+
+if(testBlob.size>targetBytes){
+
+high=mid;
+
+}else{
+
+bestBlob=testBlob;
+
+low=mid;
+
+}
+
+}
+
+}
+
+
+const resultKB=
+(bestBlob.size/1024).toFixed(2);
+
+
+const downloadURL=
+URL.createObjectURL(bestBlob);
+
+
+status.innerHTML=
+"✅ Compression complete!<br><br>"+
+"🎯 Target: "+targetKB+" KB<br>"+
+"📦 Result: "+resultKB+" KB<br><br>"+
+'<a href="'+downloadURL+'" download="smartmitra-compressed.jpg">'+
+"⬇️ Download Compressed Image"+
+"</a>";
+
+
+};
+
+
+image.onerror=function(){
+
+status.innerText=
+"❌ Could not read this image.";
+
+};
+
+
+image.src=
+URL.createObjectURL(file);
+
+}
+
+
+
+/* PERCENTAGE */
+
+function calculatePercentage(){
+
+const obtained=
+parseFloat(
+document.getElementById("calcObtained").value
+);
+
+const total=
+parseFloat(
+document.getElementById("calcTotal").value
+);
+
+
+if(isNaN(obtained)||isNaN(total)||total<=0){
+
+document.getElementById("percentageResult").innerText=
+"Enter valid values.";
+
+return;
+
+}
+
+
+document.getElementById("percentageResult").innerText=
+"Percentage: "+
+((obtained/total)*100).toFixed(2)+
+"%";
+
+}
+
+
+
+/* AGE */
+
+function calculateAge(){
+
+const value=
+document.getElementById("birthDate").value;
+
+if(!value){
+
+document.getElementById("ageResult").innerText=
+"Select your date of birth.";
+
+return;
+
+}
+
+
+const birth=
+new Date(value);
+
+const today=
+new Date();
+
+
+let age=
+today.getFullYear()-
+birth.getFullYear();
+
+
+const month=
+today.getMonth()-
+birth.getMonth();
+
+
+if(
+month<0 ||
+(month===0 &&
+today.getDate()<birth.getDate())
+){
+
+age--;
+
+}
+
+
+document.getElementById("ageResult").innerText=
+"Age: "+age+" years";
+
+}
+
+
+
+/* LENGTH CONVERTER */
 
 function convertLength(){
 
-let value=parseFloat(
-document.getElementById("lengthInput").value
+const value=
+parseFloat(
+document.getElementById("lengthValue").value
 );
 
 if(isNaN(value)){
+
 document.getElementById("lengthResult").innerText=
 "Enter a value.";
+
 return;
+
 }
 
-let from=document.getElementById("lengthFrom").value;
-let to=document.getElementById("lengthTo").value;
 
-let units={
+const from=
+document.getElementById("lengthFrom").value;
+
+const to=
+document.getElementById("lengthTo").value;
+
+
+const units={
+
 m:1,
+
 km:1000,
+
 cm:0.01,
+
+mm:0.001,
+
 ft:0.3048,
+
 in:0.0254
+
 };
 
-let meters=value*units[from];
-let result=meters/units[to];
+
+const meters=
+value*units[from];
+
+
+const result=
+meters/units[to];
+
 
 document.getElementById("lengthResult").innerText=
-result+" "+to;
+"Result: "+
+result.toFixed(6)+
+" "+to;
+
 }
 
 
-/* MARKS */
 
-function marksPercentage(){
+/* TEXT COUNTER */
 
-let m=parseFloat(
-document.getElementById("marksObtained").value
-);
+function countText(){
 
-let t=parseFloat(
-document.getElementById("totalMarks").value
-);
+const text=
+document.getElementById("counterText").value;
 
-if(!t){
-document.getElementById("marksResult").innerText=
-"Enter valid marks.";
+
+const words=
+text.trim()===""
+?
+0
+:
+text.trim().split(/\s+/).length;
+
+
+document.getElementById("counterResult").innerText=
+"Words: "+
+words+
+" | Characters: "+
+text.length;
+
+}
+
+
+
+/* CASE */
+
+function makeUpper(){
+
+const box=
+document.getElementById("caseText");
+
+box.value=
+box.value.toUpperCase();
+
+}
+
+
+function makeLower(){
+
+const box=
+document.getElementById("caseText");
+
+box.value=
+box.value.toLowerCase();
+
+}
+
+
+function makeTitle(){
+
+const box=
+document.getElementById("caseText");
+
+box.value=
+box.value.toLowerCase()
+.replace(/\b\w/g,function(c){
+return c.toUpperCase();
+});
+
+}
+
+
+
+/* REMOVE SPACES */
+
+function removeSpaces(){
+
+const text=
+document.getElementById("spaceText").value;
+
+
+document.getElementById("spaceResult").innerText=
+text.replace(/\s+/g," ").trim();
+
+}
+
+
+
+/* FIND REPLACE */
+
+function findReplace(){
+
+const text=
+document.getElementById("findText").value;
+
+const find=
+document.getElementById("findWord").value;
+
+const replace=
+document.getElementById("replaceWord").value;
+
+
+if(!find){
+
+document.getElementById("replaceResult").innerText=
+"Enter the word to find.";
+
 return;
-}
 
-document.getElementById("marksResult").innerText=
-((m/t)*100).toFixed(2)+"%";
 }
 
 
-/* CGPA */
+const result=
+text.split(find).join(replace);
 
-function cgpaPercentage(){
 
-let cgpa=parseFloat(
-document.getElementById("cgpa").value
-);
+document.getElementById("replaceResult").innerText=
+result;
 
-if(isNaN(cgpa)){
-document.getElementById("cgpaResult").innerText=
-"Enter CGPA.";
-return;
 }
 
-document.getElementById("cgpaResult").innerText=
-(cgpa*9.5).toFixed(2)+"%";
-}
-
-
-/* DISCOUNT */
-
-function discountCalculator(){
-
-let price=parseFloat(
-document.getElementById("price").value
-);
-
-let discount=parseFloat(
-document.getElementById("discount").value
-);
-
-if(isNaN(price)||isNaN(discount)){
-document.getElementById("discountResult").innerText=
-"Enter valid values.";
-return;
-}
-
-let save=price*discount/100;
-let finalPrice=price-save;
-
-document.getElementById("discountResult").innerText=
-"You save ₹"+save.toFixed(2)+
-" | Final Price ₹"+finalPrice.toFixed(2);
-}
-
-
-/* PASSWORD */
-
-function generatePassword(){
-
-let chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-let password="";
-
-for(let i=0;i<12;i++){
-password+=chars[
-Math.floor(Math.random()*chars.length)
-];
-}
-
-document.getElementById("passwordResult").innerText=
-password;
-}
-
-
-/* QR */
-
-function generateQR(){
-
-let text=document.getElementById("qrText").value;
-
-if(!text){
-alert("Enter text or URL.");
-return;
-}
-
-document.getElementById("qrResult").innerHTML=
-'<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+
-encodeURIComponent(text)+'">';
-}
-
-
-/* URL */
-
-function encodeURL(){
-
-let x=document.getElementById("urlText");
-
-x.value=encodeURIComponent(x.value);
-}
-
-function decodeURL(){
-
-let x=document.getElementById("urlText");
-
-try{
-x.value=decodeURIComponent(x.value);
-}
-catch(e){
-alert("Invalid encoded text.");
-}
-}
 
 
 /* STOPWATCH */
 
 let stopwatchSeconds=0;
+
 let stopwatchInterval=null;
+
 
 function updateStopwatch(){
 
 stopwatchSeconds++;
 
-let h=Math.floor(stopwatchSeconds/3600);
 
-let m=Math.floor(
+const h=
+Math.floor(stopwatchSeconds/3600);
+
+const m=
+Math.floor(
 (stopwatchSeconds%3600)/60
 );
 
-let s=stopwatchSeconds%60;
+const s=
+stopwatchSeconds%60;
 
-document.getElementById("stopwatch").innerText=
-String(h).padStart(2,"0")+":"+
-String(m).padStart(2,"0")+":"+
+
+document.getElementById("stopwatchDisplay").innerText=
+String(h).padStart(2,"0")+
+":"+
+String(m).padStart(2,"0")+
+":"+
 String(s).padStart(2,"0");
+
 }
+
 
 function startStopwatch(){
 
@@ -937,14 +1845,18 @@ stopwatchInterval=
 setInterval(updateStopwatch,1000);
 
 }
+
 }
+
 
 function stopStopwatch(){
 
 clearInterval(stopwatchInterval);
 
 stopwatchInterval=null;
+
 }
+
 
 function resetStopwatch(){
 
@@ -952,211 +1864,372 @@ stopStopwatch();
 
 stopwatchSeconds=0;
 
-document.getElementById("stopwatch").innerText=
+document.getElementById("stopwatchDisplay").innerText=
 "00:00:00";
+
 }
+
 
 
 /* COUNTDOWN */
 
+let countdownInterval=null;
+
+
 function startCountdown(){
 
-let seconds=parseInt(
-document.getElementById("countdownInput").value
+clearInterval(countdownInterval);
+
+
+let seconds=
+parseInt(
+document.getElementById("countdownSeconds").value
 );
 
+
 if(isNaN(seconds)||seconds<=0){
-alert("Enter seconds.");
+
+alert("Enter valid seconds.");
+
 return;
+
 }
 
-let timer=setInterval(()=>{
 
-document.getElementById("countdownResult").innerText=
+document.getElementById("countdownDisplay").innerText=
 seconds;
+
+
+countdownInterval=
+setInterval(function(){
 
 seconds--;
 
-if(seconds<0){
 
-clearInterval(timer);
+document.getElementById("countdownDisplay").innerText=
+seconds;
 
-document.getElementById("countdownResult").innerText=
-"Time Up!";
+
+if(seconds<=0){
+
+clearInterval(countdownInterval);
+
+document.getElementById("countdownDisplay").innerText=
+"Time Up! 🎉";
+
 }
 
 },1000);
+
 }
+
 
 
 /* DATE DIFFERENCE */
 
 function dateDifference(){
 
-let d1=new Date(
-document.getElementById("date1").value
+const d1=
+new Date(
+document.getElementById("dateOne").value
 );
 
-let d2=new Date(
-document.getElementById("date2").value
+const d2=
+new Date(
+document.getElementById("dateTwo").value
 );
+
 
 if(isNaN(d1)||isNaN(d2)){
-document.getElementById("dateResult").innerText=
+
+document.getElementById("dateDifferenceResult").innerText=
 "Select both dates.";
+
 return;
-}
 
-let diff=Math.abs(d2-d1);
-
-let days=Math.floor(
-diff/(1000*60*60*24)
-);
-
-document.getElementById("dateResult").innerText=
-days+" days";
 }
 
 
-/* AGE */
+const difference=
+Math.abs(d2-d1);
 
-function ageCalculator(){
 
-let dob=prompt(
-"Enter your date of birth (YYYY-MM-DD):"
+const days=
+Math.floor(
+difference/(1000*60*60*24)
 );
 
-if(!dob)return;
 
-let birth=new Date(dob);
-let today=new Date();
+document.getElementById("dateDifferenceResult").innerText=
+"Difference: "+
+days+
+" days";
 
-let age=
-today.getFullYear()-birth.getFullYear();
-
-let m=
-today.getMonth()-birth.getMonth();
-
-if(m<0 ||
-(m===0 && today.getDate()<birth.getDate())){
-age--;
-}
-
-alert(
-"Your age is approximately "+age+" years."
-);
 }
 
 
-/* PERCENTAGE */
 
-function percentageCalculator(){
+/* QR */
 
-let obtained=parseFloat(
-prompt("Marks obtained:")
+function generateQR(){
+
+const text=
+document.getElementById("qrText").value;
+
+
+if(!text){
+
+alert("Enter text or URL.");
+
+return;
+
+}
+
+
+document.getElementById("qrResult").innerHTML=
+'<img class="preview" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+
+encodeURIComponent(text)+
+'">';
+
+}
+
+
+
+/* PASSWORD */
+
+function generatePassword(){
+
+const chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+
+let password="";
+
+
+for(let i=0;i<16;i++){
+
+password+=
+chars[
+Math.floor(
+Math.random()*chars.length
+)
+];
+
+}
+
+
+document.getElementById("passwordResult").innerText=
+password;
+
+}
+
+
+
+/* URL */
+
+function encodeURL(){
+
+const box=
+document.getElementById("urlText");
+
+box.value=
+encodeURIComponent(box.value);
+
+}
+
+
+function decodeURL(){
+
+const box=
+document.getElementById("urlText");
+
+
+try{
+
+box.value=
+decodeURIComponent(box.value);
+
+}catch(error){
+
+alert("Invalid encoded text.");
+
+}
+
+}
+
+
+
+/* MARKS */
+
+function marksPercentage(){
+
+const obtained=
+parseFloat(
+document.getElementById("marksObtained").value
 );
 
-let total=parseFloat(
-prompt("Total marks:")
+const total=
+parseFloat(
+document.getElementById("marksTotal").value
 );
 
-if(total){
 
-alert(
+if(isNaN(obtained)||isNaN(total)||total<=0){
+
+document.getElementById("marksResult").innerText=
+"Enter valid marks.";
+
+return;
+
+}
+
+
+document.getElementById("marksResult").innerText=
 "Percentage: "+
-((obtained/total)*100).toFixed(2)+"%"
-);
+((obtained/total)*100).toFixed(2)+
+"%";
 
 }
+
+
+
+/* CGPA */
+
+function cgpaPercentage(){
+
+const cgpa=
+parseFloat(
+document.getElementById("cgpaValue").value
+);
+
+
+if(isNaN(cgpa)){
+
+document.getElementById("cgpaResult").innerText=
+"Enter CGPA.";
+
+return;
+
 }
+
+
+document.getElementById("cgpaResult").innerText=
+"Percentage: "+
+(cgpa*9.5).toFixed(2)+
+"%";
+
+}
+
 
 
 /* STUDY TIMER */
 
-function studyTimer(){
+let studyInterval=null;
+
+
+function startStudyTimer(){
+
+clearInterval(studyInterval);
+
 
 let seconds=45*60;
 
-let timer=setInterval(()=>{
 
-let min=Math.floor(seconds/60);
-let sec=seconds%60;
+document.getElementById("studyTimerDisplay").innerText=
+"45:00";
 
-document.getElementById("studyResult").innerText=
-String(min).padStart(2,"0")+":"+
-String(sec).padStart(2,"0");
+
+studyInterval=
+setInterval(function(){
+
+
+const minutes=
+Math.floor(seconds/60);
+
+
+const remaining=
+seconds%60;
+
+
+document.getElementById("studyTimerDisplay").innerText=
+String(minutes).padStart(2,"0")+
+":"+
+String(remaining).padStart(2,"0");
+
 
 seconds--;
 
+
 if(seconds<0){
 
-clearInterval(timer);
+clearInterval(studyInterval);
 
-document.getElementById("studyResult").innerText=
+document.getElementById("studyTimerDisplay").innerText=
 "Time Up! 🎉";
+
 }
 
 },1000);
+
 }
 
 
-/* IMAGE COMPRESSOR */
 
-function compressImage(){
+/* DISCOUNT */
 
-let file=document.getElementById("imageFile")
-.files[0];
+function discountCalculate(){
 
-let target=parseInt(
-document.getElementById("targetKB").value
+const price=
+parseFloat(
+document.getElementById("originalPrice").value
 );
 
-if(!file){
+const discount=
+parseFloat(
+document.getElementById("discountPercent").value
+);
 
-alert("Please select an image.");
+
+if(isNaN(price)||isNaN(discount)){
+
+document.getElementById("discountResult").innerText=
+"Enter valid values.";
 
 return;
+
 }
 
-let reader=new FileReader();
 
-reader.onload=function(e){
+const saved=
+price*discount/100;
 
-let img=new Image();
 
-img.onload=function(){
+const finalPrice=
+price-saved;
 
-let canvas=document.createElement("canvas");
 
-canvas.width=img.width;
-canvas.height=img.height;
+document.getElementById("discountResult").innerText=
+"You save ₹"+
+saved.toFixed(2)+
+" | Final Price ₹"+
+finalPrice.toFixed(2);
 
-let ctx=canvas.getContext("2d");
+}
 
-ctx.drawImage(img,0,0);
 
-let quality=0.9;
 
-let data=
-canvas.toDataURL("image/jpeg",quality);
+/* COMING SOON */
 
-document.getElementById("compressResult")
-.innerHTML=
-"Target: "+target+" KB<br><br>"+
-'<a download="compressed.jpg" href="'+
-data+
-'">⬇️ Download Image</a>';
+function comingSoon(){
 
-};
+alert(
+"This tool is coming soon in the next SmartMitra update."
+);
 
-img.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
 }
 
 </script>
+
 
 </body>
 </html>
